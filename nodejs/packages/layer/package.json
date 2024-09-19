@@ -11,7 +11,13 @@
     "build": "npm run clean && npm run compile && npm run postcompile",
     "compile": "tsc -p .",
     "postcompile": "copyfiles 'package*.json' build/workspace/nodejs && npm install --production --ignore-scripts --prefix build/workspace/nodejs && rm build/workspace/nodejs/package.json build/workspace/nodejs/package-lock.json && copyfiles -f 'scripts/*' build/workspace && copyfiles -f 'build/src/*' build/workspace && cd build/workspace && bestzip ../layer.zip *",
-    "test": "mocha"
+    "test": "mocha",
+
+    "comp": "tsc -p .",
+    "postcomp1": "copyfiles 'package*.json' build/workspace/nodejs && npm install --production --ignore-scripts --prefix build/workspace/nodejs && rm build/workspace/nodejs/package.json build/workspace/nodejs/package-lock.json && copyfiles -f 'scripts/*' build/workspace && copyfiles -f 'build/src/*' build/workspace",
+    "postcomp2": "cd build/workspace && bestzip ../layer.zip *",
+    "build1": "npm run clean && npm run comp && npm run postcomp1",
+    "build2": "npm run comp && copyfiles -f 'build/src/*' build/workspace && npm run postcomp2"
   },
   "keywords": [
     "opentelemetry",

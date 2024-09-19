@@ -10,7 +10,7 @@ module "hello-lambda-function" {
   create_package         = false
   local_existing_package = "${path.module}/../../build/function.zip"
 
-  memory_size = 384
+  memory_size = 512
   timeout     = 20
 
   layers = compact([
@@ -24,6 +24,15 @@ module "hello-lambda-function" {
     OTEL_METRICS_EXPORTER       = "logging"
     OTEL_LOG_LEVEL              = "DEBUG"
     OTEL_EXPORTER_OTLP_ENDPOINT = "http://localhost:4318/"
+    OTEL_TRACES_SAMPLER         = "always_on"
+    ////////////////////////////////////////////////////
+    //OTEL_EXPORTER_OTLP_PROTOCOL = "grpc"
+    //OTEL_EXPORTER_OTLP_ENDPOINT = "https://api.honeycomb.io:443"
+    //OTEL_EXPORTER_OTLP_HEADERS  = "x-honeycomb-team=b8ueofmeEUe9xeZD7xDKB6B"
+    //OTEL_EXPORTER_OTLP_ENDPOINT = "https://otel-collector-staging.tracing.catchpoint.net:443"
+    //OTEL_EXPORTER_OTLP_HEADERS  = "x-catchpoint-api-key=ce01c09b-9dda-45e2-a08d-f61d0f60e985"
+    //OTEL_LAMBDA_MODULE_TRACE_ENABLE = "false"
+    //OTEL_LAMBDA_MODULE_TRACE_MIN_DURATION = 10
   }
 
   tracing_mode = var.tracing_mode
@@ -48,6 +57,6 @@ module "api-gateway" {
   name                = var.name
   function_name       = module.hello-lambda-function.lambda_function_name
   function_invoke_arn = module.hello-lambda-function.lambda_function_invoke_arn
-  enable_xray_tracing = var.tracing_mode == "Active"
+  #enable_xray_tracing = var.tracing_mode == "Active"
 }
 

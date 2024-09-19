@@ -1,6 +1,13 @@
 import {
+  deactivate as deactivateModuleTracer,
+  getRootTracedRequires,
+  RequireTrace,
+} from './module-load-tracer';
+
+import {
   NodeTracerConfig,
   NodeTracerProvider,
+  ReadableSpan,
 } from '@opentelemetry/sdk-trace-node';
 import {
   BatchSpanProcessor,
@@ -26,8 +33,18 @@ import {
   AwsLambdaInstrumentation,
   AwsLambdaInstrumentationConfig,
 } from '@opentelemetry/instrumentation-aws-lambda';
-import { diag, DiagConsoleLogger, DiagLogLevel } from '@opentelemetry/api';
-import { getEnv } from '@opentelemetry/core';
+import {
+  AttributeValue,
+  context as OTELContext,
+  diag,
+  DiagConsoleLogger,
+  DiagLogLevel,
+  Span,
+  SpanKind,
+  trace,
+  Tracer
+} from '@opentelemetry/api';
+import { getEnv, VERSION } from '@opentelemetry/core';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-proto';
 import {
   MeterProvider,
@@ -44,6 +61,16 @@ import {
   LoggerProviderConfig,
 } from '@opentelemetry/sdk-logs';
 import { logs } from '@opentelemetry/api-logs';
+import {
+  SEMATTRS_FAAS_COLDSTART,
+  SEMATTRS_FAAS_EXECUTION,
+  SEMRESATTRS_CLOUD_ACCOUNT_ID,
+  SEMRESATTRS_FAAS_ID,
+} from '@opentelemetry/semantic-conventions';
+import { Context } from "aws-lambda";
+
+const PACKAGE_NAME = '@opentelemetry/aws-lambda-wrapper';
+const tracer: Tracer = trace.getTracer(PACKAGE_NAME, VERSION);
 
 function defaultConfigureInstrumentations() {
   // Use require statements for instrumentation to avoid having to have transitive dependencies on all the typescript
@@ -96,6 +123,31 @@ function defaultConfigureInstrumentations() {
   ];
 }
 
+function createRequireSpans(requireTrace: RequireTrace, parentSpan: Span) {
+  if (requireTrace.ignored) {
+    return;
+  }
+
+  const parentContext = trace.setSpan(OTELContext.active(), parentSpan);
+  const requireSpan: Span =
+    tracer.startSpan(
+      requireTrace.moduleId,
+      {
+        startTime: requireTrace.startTimestamp,
+        kind: SpanKind.INTERNAL,
+      },
+      parentContext
+    );
+  if (requireTrace.error) {
+    requireSpan.recordException(requireTrace.error);
+  }
+  requireSpan.end(requireTrace.finishTimestamp);
+
+  for (let childRequireTrace of requireTrace.children) {
+    createRequireSpans(childRequireTrace, requireSpan);
+  }
+}
+
 declare global {
   // in case of downstream configuring span processors etc
   function configureAwsInstrumentation(
@@ -129,7 +181,40 @@ const instrumentations = [
   new AwsLambdaInstrumentation(
     typeof configureLambdaInstrumentation === 'function'
       ? configureLambdaInstrumentation({})
-      : {},
+      : {
+        requestHook: (span: Span, hookInfo: {
+          event: any;
+          context: Context;
+        }): void => {
+          const readableSpan: ReadableSpan = (span as any) as ReadableSpan;
+          const coldStart: AttributeValue | undefined = readableSpan.attributes[SEMATTRS_FAAS_COLDSTART];
+          if (coldStart === true) {
+            const initContext = trace.setSpan(OTELContext.active(), span);
+            const initSpan: Span = tracer.startSpan(
+              'init',
+              {
+                startTime: readableSpan.startTime,
+                kind: SpanKind.INTERNAL,
+                attributes: {
+                  [SEMATTRS_FAAS_EXECUTION]: readableSpan.attributes[SEMATTRS_FAAS_EXECUTION],
+                  [SEMRESATTRS_FAAS_ID]: readableSpan.attributes[SEMRESATTRS_FAAS_ID],
+                  [SEMRESATTRS_CLOUD_ACCOUNT_ID]: readableSpan.attributes[SEMRESATTRS_CLOUD_ACCOUNT_ID],
+                },
+              },
+              initContext,
+            );
+
+            const rootTracedRequires: RequireTrace[] = getRootTracedRequires();
+            deactivateModuleTracer();
+
+            for (const rootTracedRequire of rootTracedRequires) {
+              createRequireSpans(rootTracedRequire, initSpan);
+            }
+
+            initSpan.end(Date.now());
+          }
+        },
+      }
   ),
   ...(typeof configureInstrumentations === 'function'
     ? configureInstrumentations
@@ -231,4 +316,5 @@ async function initializeProvider() {
     loggerProvider,
   });
 }
+
 initializeProvider();
