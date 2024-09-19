@@ -155,8 +155,11 @@ fi
 #   https://docs.python.org/3/library/imp.html#imp.load_module
 
 export ORIG_HANDLER=$_HANDLER;
-export _HANDLER="otel_wrapper.lambda_handler";
+#export _HANDLER="otel_wrapper.lambda_handler";
+export _HANDLER="otel_wrapper2.lambda_handler";
 
 # - Call the upstream auto instrumentation script
 
-exec python3 $LAMBDA_LAYER_PKGS_DIR/bin/opentelemetry-instrument "$@"
+#exec python3 $LAMBDA_LAYER_PKGS_DIR/bin/opentelemetry-instrument "$@"
+#export PYTHONPROFILEIMPORTTIME="true"
+exec "$@"

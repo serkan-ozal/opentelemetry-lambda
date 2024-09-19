@@ -25,9 +25,13 @@ Resources:
       Environment:
         Variables:
           AWS_LAMBDA_EXEC_WRAPPER: /opt/python/otel-instrument
+          OTEL_LOG_LEVEL: "DEBUG"
+          OTEL_EXPORTER_OTLP_ENDPOINT: "http://localhost:4318/"
+          OTEL_TRACES_SAMPLER: "always_on"
       Tracing: Active
       Layers:
         - !Ref OTelLayer
+        - arn:aws:lambda:us-west-2:184161586896:layer:opentelemetry-collector-amd64-0_10_0:3
       Events:
         getEndpoint:
           Type: Api
