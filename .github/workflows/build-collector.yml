@@ -4,52 +4,32 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
-        with:
-          go-version: '~1.21.9'
-      - uses: actions/cache@v4
-        with:
-          path: ~/go/pkg/mod
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-
-      - name: Tidy
-        run: make gotidy
-        working-directory: collector
-      - name: Run tests
-        run: make gotest
-        working-directory: collector
   build:
     runs-on: ubuntu-latest
-    needs: [test]
     strategy:
       matrix:
         architecture: [ amd64, arm64 ]
+    outputs:
+      COLLECTOR_VERSION: ${{ steps.save-collector-version.outputs.COLLECTOR_VERSION }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v5
         with:
-          go-version: '~1.21.9'
-      - uses: actions/cache@v4
+          go-version: '^1.23.1'
+      - name: Build Collector
+        run: make -C collector package GOARCH=${{ matrix.architecture }}
+      - name: Upload Collector Artifact
+        uses: actions/upload-artifact@v4
         with:
-          path: ~/go/pkg/mod
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-
-      - name: Build Collector Executable for ${{ matrix.architecture }} architecture
-        run: GOARCH=${{ matrix.architecture }} make package
-        working-directory: collector
-      - name: Get Lambda Layer amd64 architecture value
+          name: opentelemetry-collector-layer-${{ matrix.architecture }}.zip
+          path: ${{ github.workspace }}/collector/build/opentelemetry-collector-layer-${{ matrix.architecture }}.zip
+      - name: Save Collector Version
         if: ${{ matrix.architecture == 'amd64' }}
-        run: echo LAMBDA_LAYER_ARCHITECTURE=x86 | tee --append $GITHUB_ENV
-      - name: Get Lambda Layer arm64 architecture value
-        if: ${{ matrix.architecture == 'arm64' }}
-        run: echo LAMBDA_LAYER_ARCHITECTURE=ARM | tee --append $GITHUB_ENV
-      - name: Confirm architecture of built collector
-        working-directory: collector/build/extensions
+        id: save-collector-version
+        shell: bash
+        # `./collector -v` output is in the form `v0.75.0`
         run: |
-          grep ${{ env.LAMBDA_LAYER_ARCHITECTURE }} <<< "$(file collector)"
+          COLLECTOR_VERSION=$( ${{ github.workspace }}/collector/build/extensions/collector -v)
+          echo "COLLECTOR_VERSION=$COLLECTOR_VERSION" >> $GITHUB_OUTPUT
