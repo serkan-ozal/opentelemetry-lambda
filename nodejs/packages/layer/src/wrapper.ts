@@ -1,6 +1,14 @@
+const INIT_START = Date.now();
+
+import {
+  deactivate as deactivateModuleTracer,
+  getRootTracedRequires,
+  RequireTrace,
+} from './module-load-tracer';
 import {
   NodeTracerConfig,
   NodeTracerProvider,
+  ReadableSpan,
 } from '@opentelemetry/sdk-trace-node';
 import {
   BatchSpanProcessor,
@@ -27,15 +35,20 @@ import {
   AwsLambdaInstrumentationConfig,
 } from '@opentelemetry/instrumentation-aws-lambda';
 import {
+  AttributeValue,
   context,
   diag,
   DiagConsoleLogger,
   DiagLogLevel,
+  Exception,
   metrics,
   propagation,
+  Span,
+  SpanKind,
   trace,
+  Tracer,
 } from '@opentelemetry/api';
-import { getEnv } from '@opentelemetry/core';
+import { getEnv, VERSION } from '@opentelemetry/core';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-proto';
 import {
   MeterProvider,
@@ -52,6 +65,17 @@ import {
   LoggerProviderConfig,
 } from '@opentelemetry/sdk-logs';
 import { logs } from '@opentelemetry/api-logs';
+import {
+  SEMATTRS_FAAS_EXECUTION,
+  SEMRESATTRS_FAAS_ID,
+} from '@opentelemetry/semantic-conventions';
+import {
+  ATTR_FAAS_COLDSTART,
+  ATTR_CLOUD_ACCOUNT_ID,
+} from '@opentelemetry/semantic-conventions/incubating';
+
+const PACKAGE_NAME = '@opentelemetry/aws-lambda-wrapper';
+const tracer: Tracer = trace.getTracer(PACKAGE_NAME, VERSION);
 
 function defaultConfigureInstrumentations() {
   // Use require statements for instrumentation
@@ -104,6 +128,30 @@ function defaultConfigureInstrumentations() {
   ];
 }
 
+function createRequireSpans(requireTrace: RequireTrace, parentSpan: Span) {
+  if (requireTrace.ignored) {
+    return;
+  }
+
+  const parentContext = trace.setSpan(context.active(), parentSpan);
+  const requireSpan: Span = tracer.startSpan(
+    requireTrace.moduleId,
+    {
+      startTime: requireTrace.startTimestamp,
+      kind: SpanKind.INTERNAL,
+    },
+    parentContext,
+  );
+  if (requireTrace.error) {
+    requireSpan.recordException(requireTrace.error as Exception);
+  }
+  requireSpan.end(requireTrace.finishTimestamp);
+
+  for (const childRequireTrace of requireTrace.children) {
+    createRequireSpans(childRequireTrace, requireSpan);
+  }
+}
+
 declare global {
   // In case of downstream configuring span processors etc
   function configureAwsInstrumentation(
@@ -136,7 +184,43 @@ function createInstrumentations() {
     new AwsLambdaInstrumentation(
       typeof configureLambdaInstrumentation === 'function'
         ? configureLambdaInstrumentation({})
-        : {},
+        : {
+            requestHook: (span: Span): void => {
+              const invocationSpan: ReadableSpan =
+                span as unknown as ReadableSpan;
+              const coldStart: AttributeValue | undefined =
+                invocationSpan.attributes[ATTR_FAAS_COLDSTART];
+              if (coldStart === true) {
+                const initContext = trace.setSpan(context.active(), span);
+                const initSpan: Span = tracer.startSpan(
+                  'init',
+                  {
+                    startTime: invocationSpan.startTime,
+                    kind: SpanKind.INTERNAL,
+                    attributes: {
+                      [SEMATTRS_FAAS_EXECUTION]:
+                        invocationSpan.attributes[SEMATTRS_FAAS_EXECUTION],
+                      [SEMRESATTRS_FAAS_ID]:
+                        invocationSpan.attributes[SEMRESATTRS_FAAS_ID],
+                      [ATTR_CLOUD_ACCOUNT_ID]:
+                        invocationSpan.attributes[ATTR_CLOUD_ACCOUNT_ID],
+                    },
+                  },
+                  initContext,
+                );
+
+                const rootTracedRequires: RequireTrace[] =
+                  getRootTracedRequires();
+                deactivateModuleTracer();
+
+                for (const rootTracedRequire of rootTracedRequires) {
+                  createRequireSpans(rootTracedRequire, initSpan);
+                }
+
+                initSpan.end(Date.now());
+              }
+            },
+          },
     ),
     ...(typeof configureInstrumentations === 'function'
       ? configureInstrumentations
@@ -272,3 +356,11 @@ disableInstrumentations = registerInstrumentations({
 });
 
 wrap();
+
+console.log('>>>>> Wrapper has been initialized in',
+  (Date.now() - INIT_START),
+  'milliseconds');
+console.log('>>>>> Wrapper has been initialization completed',
+  (Math.floor(1000 * process.uptime())),
+  'milliseconds later after startup');
+

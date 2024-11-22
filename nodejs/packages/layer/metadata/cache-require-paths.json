@@ -1,0 +1,1741 @@
+{
+  "/opt/wrapper.js": {
+    "./module-load-tracer": "/opt/module-load-tracer.js",
+    "@opentelemetry/sdk-trace-node": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-node/build/src/index.js",
+    "@opentelemetry/sdk-trace-base": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/index.js",
+    "@opentelemetry/instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/index.js",
+    "@opentelemetry/resource-detector-aws": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/index.js",
+    "@opentelemetry/resources": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/index.js",
+    "@opentelemetry/instrumentation-aws-sdk": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/index.js",
+    "@opentelemetry/instrumentation-aws-lambda": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-lambda/build/src/index.js",
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "@opentelemetry/exporter-trace-otlp-proto": "/opt/nodejs/node_modules/@opentelemetry/exporter-trace-otlp-proto/build/src/index.js",
+    "@opentelemetry/sdk-metrics": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/index.js",
+    "@opentelemetry/exporter-metrics-otlp-proto": "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-proto/build/src/index.js",
+    "@opentelemetry/exporter-logs-otlp-proto": "/opt/nodejs/node_modules/@opentelemetry/exporter-logs-otlp-proto/build/src/index.js",
+    "@opentelemetry/auto-configuration-propagators": "/opt/nodejs/node_modules/@opentelemetry/auto-configuration-propagators/build/src/index.js",
+    "@opentelemetry/sdk-logs": "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/index.js",
+    "@opentelemetry/api-logs": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/index.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+    "@opentelemetry/semantic-conventions/incubating": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index-incubating.js",
+    "@opentelemetry/instrumentation-dns": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-dns/build/src/index.js",
+    "@opentelemetry/instrumentation-express": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-express/build/src/index.js",
+    "@opentelemetry/instrumentation-graphql": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-graphql/build/src/index.js",
+    "@opentelemetry/instrumentation-grpc": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-grpc/build/src/index.js",
+    "@opentelemetry/instrumentation-hapi": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-hapi/build/src/index.js",
+    "@opentelemetry/instrumentation-http": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-http/build/src/index.js",
+    "@opentelemetry/instrumentation-ioredis": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-ioredis/build/src/index.js",
+    "@opentelemetry/instrumentation-koa": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-koa/build/src/index.js",
+    "@opentelemetry/instrumentation-mongodb": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-mongodb/build/src/index.js",
+    "@opentelemetry/instrumentation-mysql": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-mysql/build/src/index.js",
+    "@opentelemetry/instrumentation-net": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-net/build/src/index.js",
+    "@opentelemetry/instrumentation-pg": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-pg/build/src/index.js",
+    "@opentelemetry/instrumentation-redis": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-redis/build/src/index.js"
+  },
+  "/opt/module-load-tracer.js": {
+    "module": "module"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-node/build/src/index.js": {
+    "./NodeTracerProvider": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-node/build/src/NodeTracerProvider.js",
+    "@opentelemetry/sdk-trace-base": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-node/build/src/NodeTracerProvider.js": {
+    "@opentelemetry/context-async-hooks": "/opt/nodejs/node_modules/@opentelemetry/context-async-hooks/build/src/index.js",
+    "@opentelemetry/propagator-b3": "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/index.js",
+    "@opentelemetry/sdk-trace-base": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/index.js",
+    "semver": "/opt/nodejs/node_modules/semver/index.js",
+    "@opentelemetry/propagator-jaeger": "/opt/nodejs/node_modules/@opentelemetry/propagator-jaeger/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/context-async-hooks/build/src/index.js": {
+    "./AsyncHooksContextManager": "/opt/nodejs/node_modules/@opentelemetry/context-async-hooks/build/src/AsyncHooksContextManager.js",
+    "./AsyncLocalStorageContextManager": "/opt/nodejs/node_modules/@opentelemetry/context-async-hooks/build/src/AsyncLocalStorageContextManager.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/context-async-hooks/build/src/AsyncHooksContextManager.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "async_hooks": "async_hooks",
+    "./AbstractAsyncHooksContextManager": "/opt/nodejs/node_modules/@opentelemetry/context-async-hooks/build/src/AbstractAsyncHooksContextManager.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js": {
+    "./baggage/utils": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/baggage/utils.js",
+    "./context/context": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/context/context.js",
+    "./diag/consoleLogger": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/diag/consoleLogger.js",
+    "./diag/types": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/diag/types.js",
+    "./metrics/NoopMeter": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/metrics/NoopMeter.js",
+    "./metrics/Metric": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/metrics/Metric.js",
+    "./propagation/TextMapPropagator": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/propagation/TextMapPropagator.js",
+    "./trace/ProxyTracer": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js",
+    "./trace/ProxyTracerProvider": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/ProxyTracerProvider.js",
+    "./trace/SamplingResult": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/SamplingResult.js",
+    "./trace/span_kind": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/span_kind.js",
+    "./trace/status": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/status.js",
+    "./trace/trace_flags": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/trace_flags.js",
+    "./trace/internal/utils": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/internal/utils.js",
+    "./trace/spancontext-utils": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/spancontext-utils.js",
+    "./trace/invalid-span-constants": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/invalid-span-constants.js",
+    "./context-api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/context-api.js",
+    "./diag-api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/diag-api.js",
+    "./metrics-api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/metrics-api.js",
+    "./propagation-api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/propagation-api.js",
+    "./trace-api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace-api.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/baggage/utils.js": {
+    "../api/diag": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/diag.js",
+    "./internal/baggage-impl": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/baggage/internal/baggage-impl.js",
+    "./internal/symbol": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/baggage/internal/symbol.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/diag.js": {
+    "../diag/ComponentLogger": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/diag/ComponentLogger.js",
+    "../diag/internal/logLevelLogger": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/diag/internal/logLevelLogger.js",
+    "../diag/types": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/diag/types.js",
+    "../internal/global-utils": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/internal/global-utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/diag/ComponentLogger.js": {
+    "../internal/global-utils": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/internal/global-utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/internal/global-utils.js": {
+    "../platform": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/platform/index.js",
+    "../version": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/version.js",
+    "./semver": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/internal/semver.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/platform/index.js": {
+    "./node": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/platform/node/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/platform/node/index.js": {
+    "./globalThis": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/platform/node/globalThis.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/internal/semver.js": {
+    "../version": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/version.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/diag/internal/logLevelLogger.js": {
+    "../types": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/diag/types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js": {
+    "./NoopTracer": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js": {
+    "../api/context": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/context.js",
+    "../trace/context-utils": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/context-utils.js",
+    "./NonRecordingSpan": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/NonRecordingSpan.js",
+    "./spancontext-utils": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/spancontext-utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/context.js": {
+    "../context/NoopContextManager": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js",
+    "../internal/global-utils": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/internal/global-utils.js",
+    "./diag": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/diag.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js": {
+    "./context": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/context/context.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/context-utils.js": {
+    "../context/context": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/context/context.js",
+    "./NonRecordingSpan": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/NonRecordingSpan.js",
+    "../api/context": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/context.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/NonRecordingSpan.js": {
+    "./invalid-span-constants": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/invalid-span-constants.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/invalid-span-constants.js": {
+    "./trace_flags": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/trace_flags.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/spancontext-utils.js": {
+    "./invalid-span-constants": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/invalid-span-constants.js",
+    "./NonRecordingSpan": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/NonRecordingSpan.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/ProxyTracerProvider.js": {
+    "./ProxyTracer": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js",
+    "./NoopTracerProvider": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/NoopTracerProvider.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/NoopTracerProvider.js": {
+    "./NoopTracer": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/internal/utils.js": {
+    "./tracestate-impl": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/internal/tracestate-impl.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/internal/tracestate-impl.js": {
+    "./tracestate-validators": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/internal/tracestate-validators.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/context-api.js": {
+    "./api/context": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/context.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/diag-api.js": {
+    "./api/diag": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/diag.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/metrics-api.js": {
+    "./api/metrics": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/metrics.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/metrics.js": {
+    "../metrics/NoopMeterProvider": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/metrics/NoopMeterProvider.js",
+    "../internal/global-utils": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/internal/global-utils.js",
+    "./diag": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/diag.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/metrics/NoopMeterProvider.js": {
+    "./NoopMeter": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/metrics/NoopMeter.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/propagation-api.js": {
+    "./api/propagation": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/propagation.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/propagation.js": {
+    "../internal/global-utils": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/internal/global-utils.js",
+    "../propagation/NoopTextMapPropagator": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/propagation/NoopTextMapPropagator.js",
+    "../propagation/TextMapPropagator": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/propagation/TextMapPropagator.js",
+    "../baggage/context-helpers": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/baggage/context-helpers.js",
+    "../baggage/utils": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/baggage/utils.js",
+    "./diag": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/diag.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/baggage/context-helpers.js": {
+    "../api/context": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/context.js",
+    "../context/context": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/context/context.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace-api.js": {
+    "./api/trace": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/trace.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/trace.js": {
+    "../internal/global-utils": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/internal/global-utils.js",
+    "../trace/ProxyTracerProvider": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/ProxyTracerProvider.js",
+    "../trace/spancontext-utils": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/spancontext-utils.js",
+    "../trace/context-utils": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/trace/context-utils.js",
+    "./diag": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/api/diag.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/context-async-hooks/build/src/AbstractAsyncHooksContextManager.js": {
+    "events": "events"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/context-async-hooks/build/src/AsyncLocalStorageContextManager.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "async_hooks": "async_hooks",
+    "./AbstractAsyncHooksContextManager": "/opt/nodejs/node_modules/@opentelemetry/context-async-hooks/build/src/AbstractAsyncHooksContextManager.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/index.js": {
+    "./B3Propagator": "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/B3Propagator.js",
+    "./constants": "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/constants.js",
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/B3Propagator.js": {
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "./B3MultiPropagator": "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/B3MultiPropagator.js",
+    "./B3SinglePropagator": "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/B3SinglePropagator.js",
+    "./constants": "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/constants.js",
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js": {
+    "./baggage/propagation/W3CBaggagePropagator": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/baggage/propagation/W3CBaggagePropagator.js",
+    "./common/anchored-clock": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/common/anchored-clock.js",
+    "./common/attributes": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/common/attributes.js",
+    "./common/global-error-handler": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/common/global-error-handler.js",
+    "./common/logging-error-handler": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/common/logging-error-handler.js",
+    "./common/time": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/common/time.js",
+    "./common/hex-to-binary": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/common/hex-to-binary.js",
+    "./ExportResult": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/ExportResult.js",
+    "./baggage/utils": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/baggage/utils.js",
+    "./platform": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/platform/index.js",
+    "./propagation/composite": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/propagation/composite.js",
+    "./trace/W3CTraceContextPropagator": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/W3CTraceContextPropagator.js",
+    "./trace/rpc-metadata": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/rpc-metadata.js",
+    "./trace/sampler/AlwaysOffSampler": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/sampler/AlwaysOffSampler.js",
+    "./trace/sampler/AlwaysOnSampler": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/sampler/AlwaysOnSampler.js",
+    "./trace/sampler/ParentBasedSampler": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/sampler/ParentBasedSampler.js",
+    "./trace/sampler/TraceIdRatioBasedSampler": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/sampler/TraceIdRatioBasedSampler.js",
+    "./trace/suppress-tracing": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/suppress-tracing.js",
+    "./trace/TraceState": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/TraceState.js",
+    "./utils/environment": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/utils/environment.js",
+    "./utils/merge": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/utils/merge.js",
+    "./utils/sampling": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/utils/sampling.js",
+    "./utils/timeout": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/utils/timeout.js",
+    "./utils/url": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/utils/url.js",
+    "./utils/wrap": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/utils/wrap.js",
+    "./utils/callback": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/utils/callback.js",
+    "./version": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/version.js",
+    "./internal/exporter": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/internal/exporter.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/baggage/propagation/W3CBaggagePropagator.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "../../trace/suppress-tracing": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/suppress-tracing.js",
+    "../constants": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/baggage/constants.js",
+    "../utils": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/baggage/utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/suppress-tracing.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/baggage/utils.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "./constants": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/baggage/constants.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/common/attributes.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/common/global-error-handler.js": {
+    "./logging-error-handler": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/common/logging-error-handler.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/common/logging-error-handler.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/common/time.js": {
+    "../platform": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/platform/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/platform/index.js": {
+    "./node": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/platform/node/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/platform/node/index.js": {
+    "./environment": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/platform/node/environment.js",
+    "./globalThis": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/platform/node/globalThis.js",
+    "./hex-to-base64": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/platform/node/hex-to-base64.js",
+    "./RandomIdGenerator": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/platform/node/RandomIdGenerator.js",
+    "./performance": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/platform/node/performance.js",
+    "./sdk-info": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/platform/node/sdk-info.js",
+    "./timer-util": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/platform/node/timer-util.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/platform/node/environment.js": {
+    "../../utils/environment": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/utils/environment.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/utils/environment.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "./sampling": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/utils/sampling.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/platform/node/hex-to-base64.js": {
+    "../../common/hex-to-binary": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/common/hex-to-binary.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/platform/node/performance.js": {
+    "perf_hooks": "perf_hooks"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/platform/node/sdk-info.js": {
+    "../../version": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/version.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js": {
+    "./trace": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/trace/index.js",
+    "./resource": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/resource/index.js",
+    "./stable_attributes": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/stable_attributes.js",
+    "./stable_metrics": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/stable_metrics.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/trace/index.js": {
+    "./SemanticAttributes": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/trace/SemanticAttributes.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/trace/SemanticAttributes.js": {
+    "../internal/utils": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/internal/utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/resource/index.js": {
+    "./SemanticResourceAttributes": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/resource/SemanticResourceAttributes.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/resource/SemanticResourceAttributes.js": {
+    "../internal/utils": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/internal/utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/propagation/composite.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/W3CTraceContextPropagator.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "./suppress-tracing": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/suppress-tracing.js",
+    "./TraceState": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/TraceState.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/TraceState.js": {
+    "../internal/validators": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/internal/validators.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/rpc-metadata.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/sampler/AlwaysOffSampler.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/sampler/AlwaysOnSampler.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/sampler/ParentBasedSampler.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "../../common/global-error-handler": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/common/global-error-handler.js",
+    "./AlwaysOffSampler": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/sampler/AlwaysOffSampler.js",
+    "./AlwaysOnSampler": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/sampler/AlwaysOnSampler.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/sampler/TraceIdRatioBasedSampler.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/utils/merge.js": {
+    "./lodash.merge": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/utils/lodash.merge.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/utils/callback.js": {
+    "./promise": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/utils/promise.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/core/build/src/internal/exporter.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "../trace/suppress-tracing": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/trace/suppress-tracing.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/B3MultiPropagator.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "./common": "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/common.js",
+    "./constants": "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/constants.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/common.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/B3SinglePropagator.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "./common": "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/common.js",
+    "./constants": "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/constants.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/index.js": {
+    "./Tracer": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/Tracer.js",
+    "./BasicTracerProvider": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/BasicTracerProvider.js",
+    "./platform": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/platform/index.js",
+    "./export/ConsoleSpanExporter": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/export/ConsoleSpanExporter.js",
+    "./export/InMemorySpanExporter": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/export/InMemorySpanExporter.js",
+    "./export/SimpleSpanProcessor": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/export/SimpleSpanProcessor.js",
+    "./export/NoopSpanProcessor": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/export/NoopSpanProcessor.js",
+    "./sampler/AlwaysOffSampler": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/sampler/AlwaysOffSampler.js",
+    "./sampler/AlwaysOnSampler": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/sampler/AlwaysOnSampler.js",
+    "./sampler/ParentBasedSampler": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/sampler/ParentBasedSampler.js",
+    "./sampler/TraceIdRatioBasedSampler": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/sampler/TraceIdRatioBasedSampler.js",
+    "./Sampler": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/Sampler.js",
+    "./Span": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/Span.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/Tracer.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "./Span": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/Span.js",
+    "./utility": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/utility.js",
+    "./platform": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/platform/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/Span.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+    "./enums": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/enums.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/utility.js": {
+    "./config": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/config.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/config.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "./sampler/AlwaysOffSampler": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/sampler/AlwaysOffSampler.js",
+    "./sampler/AlwaysOnSampler": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/sampler/AlwaysOnSampler.js",
+    "./sampler/ParentBasedSampler": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/sampler/ParentBasedSampler.js",
+    "./sampler/TraceIdRatioBasedSampler": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/sampler/TraceIdRatioBasedSampler.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/sampler/AlwaysOffSampler.js": {
+    "../Sampler": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/Sampler.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/sampler/AlwaysOnSampler.js": {
+    "../Sampler": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/Sampler.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/sampler/ParentBasedSampler.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "./AlwaysOffSampler": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/sampler/AlwaysOffSampler.js",
+    "./AlwaysOnSampler": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/sampler/AlwaysOnSampler.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/sampler/TraceIdRatioBasedSampler.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "../Sampler": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/Sampler.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/platform/index.js": {
+    "./node": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/platform/node/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/platform/node/index.js": {
+    "./export/BatchSpanProcessor": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/platform/node/export/BatchSpanProcessor.js",
+    "./RandomIdGenerator": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/platform/node/RandomIdGenerator.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/platform/node/export/BatchSpanProcessor.js": {
+    "../../../export/BatchSpanProcessorBase": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/export/BatchSpanProcessorBase.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/export/BatchSpanProcessorBase.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/BasicTracerProvider.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "@opentelemetry/resources": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/index.js",
+    ".": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/index.js",
+    "./config": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/config.js",
+    "./MultiSpanProcessor": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/MultiSpanProcessor.js",
+    "./export/NoopSpanProcessor": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/export/NoopSpanProcessor.js",
+    "./platform": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/platform/index.js",
+    "./utility": "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/utility.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/index.js": {
+    "./Resource": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/Resource.js",
+    "./platform": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/platform/index.js",
+    "./detectors": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/index.js",
+    "./detect-resources": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detect-resources.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/Resource.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "./platform": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/platform/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/platform/index.js": {
+    "./node": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/platform/node/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/platform/node/index.js": {
+    "./default-service-name": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/platform/node/default-service-name.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/index.js": {
+    "./platform": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/index.js",
+    "./BrowserDetector": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/BrowserDetector.js",
+    "./EnvDetector": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/EnvDetector.js",
+    "./BrowserDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/BrowserDetectorSync.js",
+    "./EnvDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/EnvDetectorSync.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/index.js": {
+    "./node": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/index.js": {
+    "./HostDetector": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/HostDetector.js",
+    "./HostDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/HostDetectorSync.js",
+    "./OSDetector": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/OSDetector.js",
+    "./OSDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/OSDetectorSync.js",
+    "./ProcessDetector": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/ProcessDetector.js",
+    "./ProcessDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/ProcessDetectorSync.js",
+    "./ServiceInstanceIdDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/ServiceInstanceIdDetectorSync.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/HostDetector.js": {
+    "./HostDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/HostDetectorSync.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/HostDetectorSync.js": {
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+    "../../../Resource": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/Resource.js",
+    "os": "os",
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/utils.js",
+    "./machine-id/getMachineId": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/machine-id/getMachineId.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/machine-id/getMachineId.js": {
+    "process": "process",
+    "./getMachineId-linux": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/machine-id/getMachineId-linux.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/machine-id/getMachineId-linux.js": {
+    "fs": "fs",
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/OSDetector.js": {
+    "./OSDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/OSDetectorSync.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/OSDetectorSync.js": {
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+    "../../../Resource": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/Resource.js",
+    "os": "os",
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/ProcessDetector.js": {
+    "./ProcessDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/ProcessDetectorSync.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/ProcessDetectorSync.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+    "../../../Resource": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/Resource.js",
+    "os": "os"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/platform/node/ServiceInstanceIdDetectorSync.js": {
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+    "../../../Resource": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/Resource.js",
+    "crypto": "crypto"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/BrowserDetector.js": {
+    "./BrowserDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/BrowserDetectorSync.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/BrowserDetectorSync.js": {
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "../Resource": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/Resource.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/EnvDetector.js": {
+    "./EnvDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/EnvDetectorSync.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detectors/EnvDetectorSync.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+    "../Resource": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/Resource.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/detect-resources.js": {
+    "./Resource": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/Resource.js",
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/MultiSpanProcessor.js": {
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/export/ConsoleSpanExporter.js": {
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/export/InMemorySpanExporter.js": {
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-trace-base/build/src/export/SimpleSpanProcessor.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/semver/index.js": {
+    "./internal/re": "/opt/nodejs/node_modules/semver/internal/re.js",
+    "./internal/constants": "/opt/nodejs/node_modules/semver/internal/constants.js",
+    "./classes/semver": "/opt/nodejs/node_modules/semver/classes/semver.js",
+    "./internal/identifiers": "/opt/nodejs/node_modules/semver/internal/identifiers.js",
+    "./functions/parse": "/opt/nodejs/node_modules/semver/functions/parse.js",
+    "./functions/valid": "/opt/nodejs/node_modules/semver/functions/valid.js",
+    "./functions/clean": "/opt/nodejs/node_modules/semver/functions/clean.js",
+    "./functions/inc": "/opt/nodejs/node_modules/semver/functions/inc.js",
+    "./functions/diff": "/opt/nodejs/node_modules/semver/functions/diff.js",
+    "./functions/major": "/opt/nodejs/node_modules/semver/functions/major.js",
+    "./functions/minor": "/opt/nodejs/node_modules/semver/functions/minor.js",
+    "./functions/patch": "/opt/nodejs/node_modules/semver/functions/patch.js",
+    "./functions/prerelease": "/opt/nodejs/node_modules/semver/functions/prerelease.js",
+    "./functions/compare": "/opt/nodejs/node_modules/semver/functions/compare.js",
+    "./functions/rcompare": "/opt/nodejs/node_modules/semver/functions/rcompare.js",
+    "./functions/compare-loose": "/opt/nodejs/node_modules/semver/functions/compare-loose.js",
+    "./functions/compare-build": "/opt/nodejs/node_modules/semver/functions/compare-build.js",
+    "./functions/sort": "/opt/nodejs/node_modules/semver/functions/sort.js",
+    "./functions/rsort": "/opt/nodejs/node_modules/semver/functions/rsort.js",
+    "./functions/gt": "/opt/nodejs/node_modules/semver/functions/gt.js",
+    "./functions/lt": "/opt/nodejs/node_modules/semver/functions/lt.js",
+    "./functions/eq": "/opt/nodejs/node_modules/semver/functions/eq.js",
+    "./functions/neq": "/opt/nodejs/node_modules/semver/functions/neq.js",
+    "./functions/gte": "/opt/nodejs/node_modules/semver/functions/gte.js",
+    "./functions/lte": "/opt/nodejs/node_modules/semver/functions/lte.js",
+    "./functions/cmp": "/opt/nodejs/node_modules/semver/functions/cmp.js",
+    "./functions/coerce": "/opt/nodejs/node_modules/semver/functions/coerce.js",
+    "./classes/comparator": "/opt/nodejs/node_modules/semver/classes/comparator.js",
+    "./classes/range": "/opt/nodejs/node_modules/semver/classes/range.js",
+    "./functions/satisfies": "/opt/nodejs/node_modules/semver/functions/satisfies.js",
+    "./ranges/to-comparators": "/opt/nodejs/node_modules/semver/ranges/to-comparators.js",
+    "./ranges/max-satisfying": "/opt/nodejs/node_modules/semver/ranges/max-satisfying.js",
+    "./ranges/min-satisfying": "/opt/nodejs/node_modules/semver/ranges/min-satisfying.js",
+    "./ranges/min-version": "/opt/nodejs/node_modules/semver/ranges/min-version.js",
+    "./ranges/valid": "/opt/nodejs/node_modules/semver/ranges/valid.js",
+    "./ranges/outside": "/opt/nodejs/node_modules/semver/ranges/outside.js",
+    "./ranges/gtr": "/opt/nodejs/node_modules/semver/ranges/gtr.js",
+    "./ranges/ltr": "/opt/nodejs/node_modules/semver/ranges/ltr.js",
+    "./ranges/intersects": "/opt/nodejs/node_modules/semver/ranges/intersects.js",
+    "./ranges/simplify": "/opt/nodejs/node_modules/semver/ranges/simplify.js",
+    "./ranges/subset": "/opt/nodejs/node_modules/semver/ranges/subset.js"
+  },
+  "/opt/nodejs/node_modules/semver/internal/re.js": {
+    "./constants": "/opt/nodejs/node_modules/semver/internal/constants.js",
+    "./debug": "/opt/nodejs/node_modules/semver/internal/debug.js"
+  },
+  "/opt/nodejs/node_modules/semver/classes/semver.js": {
+    "../internal/debug": "/opt/nodejs/node_modules/semver/internal/debug.js",
+    "../internal/constants": "/opt/nodejs/node_modules/semver/internal/constants.js",
+    "../internal/re": "/opt/nodejs/node_modules/semver/internal/re.js",
+    "../internal/parse-options": "/opt/nodejs/node_modules/semver/internal/parse-options.js",
+    "../internal/identifiers": "/opt/nodejs/node_modules/semver/internal/identifiers.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/parse.js": {
+    "../classes/semver": "/opt/nodejs/node_modules/semver/classes/semver.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/valid.js": {
+    "./parse": "/opt/nodejs/node_modules/semver/functions/parse.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/clean.js": {
+    "./parse": "/opt/nodejs/node_modules/semver/functions/parse.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/inc.js": {
+    "../classes/semver": "/opt/nodejs/node_modules/semver/classes/semver.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/diff.js": {
+    "./parse.js": "/opt/nodejs/node_modules/semver/functions/parse.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/major.js": {
+    "../classes/semver": "/opt/nodejs/node_modules/semver/classes/semver.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/minor.js": {
+    "../classes/semver": "/opt/nodejs/node_modules/semver/classes/semver.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/patch.js": {
+    "../classes/semver": "/opt/nodejs/node_modules/semver/classes/semver.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/prerelease.js": {
+    "./parse": "/opt/nodejs/node_modules/semver/functions/parse.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/compare.js": {
+    "../classes/semver": "/opt/nodejs/node_modules/semver/classes/semver.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/rcompare.js": {
+    "./compare": "/opt/nodejs/node_modules/semver/functions/compare.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/compare-loose.js": {
+    "./compare": "/opt/nodejs/node_modules/semver/functions/compare.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/compare-build.js": {
+    "../classes/semver": "/opt/nodejs/node_modules/semver/classes/semver.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/sort.js": {
+    "./compare-build": "/opt/nodejs/node_modules/semver/functions/compare-build.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/rsort.js": {
+    "./compare-build": "/opt/nodejs/node_modules/semver/functions/compare-build.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/gt.js": {
+    "./compare": "/opt/nodejs/node_modules/semver/functions/compare.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/lt.js": {
+    "./compare": "/opt/nodejs/node_modules/semver/functions/compare.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/eq.js": {
+    "./compare": "/opt/nodejs/node_modules/semver/functions/compare.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/neq.js": {
+    "./compare": "/opt/nodejs/node_modules/semver/functions/compare.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/gte.js": {
+    "./compare": "/opt/nodejs/node_modules/semver/functions/compare.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/lte.js": {
+    "./compare": "/opt/nodejs/node_modules/semver/functions/compare.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/cmp.js": {
+    "./eq": "/opt/nodejs/node_modules/semver/functions/eq.js",
+    "./neq": "/opt/nodejs/node_modules/semver/functions/neq.js",
+    "./gt": "/opt/nodejs/node_modules/semver/functions/gt.js",
+    "./gte": "/opt/nodejs/node_modules/semver/functions/gte.js",
+    "./lt": "/opt/nodejs/node_modules/semver/functions/lt.js",
+    "./lte": "/opt/nodejs/node_modules/semver/functions/lte.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/coerce.js": {
+    "../classes/semver": "/opt/nodejs/node_modules/semver/classes/semver.js",
+    "./parse": "/opt/nodejs/node_modules/semver/functions/parse.js",
+    "../internal/re": "/opt/nodejs/node_modules/semver/internal/re.js"
+  },
+  "/opt/nodejs/node_modules/semver/classes/comparator.js": {
+    "../internal/parse-options": "/opt/nodejs/node_modules/semver/internal/parse-options.js",
+    "../internal/re": "/opt/nodejs/node_modules/semver/internal/re.js",
+    "../functions/cmp": "/opt/nodejs/node_modules/semver/functions/cmp.js",
+    "../internal/debug": "/opt/nodejs/node_modules/semver/internal/debug.js",
+    "./semver": "/opt/nodejs/node_modules/semver/classes/semver.js",
+    "./range": "/opt/nodejs/node_modules/semver/classes/range.js"
+  },
+  "/opt/nodejs/node_modules/semver/classes/range.js": {
+    "../internal/lrucache": "/opt/nodejs/node_modules/semver/internal/lrucache.js",
+    "../internal/parse-options": "/opt/nodejs/node_modules/semver/internal/parse-options.js",
+    "./comparator": "/opt/nodejs/node_modules/semver/classes/comparator.js",
+    "../internal/debug": "/opt/nodejs/node_modules/semver/internal/debug.js",
+    "./semver": "/opt/nodejs/node_modules/semver/classes/semver.js",
+    "../internal/re": "/opt/nodejs/node_modules/semver/internal/re.js",
+    "../internal/constants": "/opt/nodejs/node_modules/semver/internal/constants.js"
+  },
+  "/opt/nodejs/node_modules/semver/functions/satisfies.js": {
+    "../classes/range": "/opt/nodejs/node_modules/semver/classes/range.js"
+  },
+  "/opt/nodejs/node_modules/semver/ranges/to-comparators.js": {
+    "../classes/range": "/opt/nodejs/node_modules/semver/classes/range.js"
+  },
+  "/opt/nodejs/node_modules/semver/ranges/max-satisfying.js": {
+    "../classes/semver": "/opt/nodejs/node_modules/semver/classes/semver.js",
+    "../classes/range": "/opt/nodejs/node_modules/semver/classes/range.js"
+  },
+  "/opt/nodejs/node_modules/semver/ranges/min-satisfying.js": {
+    "../classes/semver": "/opt/nodejs/node_modules/semver/classes/semver.js",
+    "../classes/range": "/opt/nodejs/node_modules/semver/classes/range.js"
+  },
+  "/opt/nodejs/node_modules/semver/ranges/min-version.js": {
+    "../classes/semver": "/opt/nodejs/node_modules/semver/classes/semver.js",
+    "../classes/range": "/opt/nodejs/node_modules/semver/classes/range.js",
+    "../functions/gt": "/opt/nodejs/node_modules/semver/functions/gt.js"
+  },
+  "/opt/nodejs/node_modules/semver/ranges/valid.js": {
+    "../classes/range": "/opt/nodejs/node_modules/semver/classes/range.js"
+  },
+  "/opt/nodejs/node_modules/semver/ranges/outside.js": {
+    "../classes/semver": "/opt/nodejs/node_modules/semver/classes/semver.js",
+    "../classes/comparator": "/opt/nodejs/node_modules/semver/classes/comparator.js",
+    "../classes/range": "/opt/nodejs/node_modules/semver/classes/range.js",
+    "../functions/satisfies": "/opt/nodejs/node_modules/semver/functions/satisfies.js",
+    "../functions/gt": "/opt/nodejs/node_modules/semver/functions/gt.js",
+    "../functions/lt": "/opt/nodejs/node_modules/semver/functions/lt.js",
+    "../functions/lte": "/opt/nodejs/node_modules/semver/functions/lte.js",
+    "../functions/gte": "/opt/nodejs/node_modules/semver/functions/gte.js"
+  },
+  "/opt/nodejs/node_modules/semver/ranges/gtr.js": {
+    "./outside": "/opt/nodejs/node_modules/semver/ranges/outside.js"
+  },
+  "/opt/nodejs/node_modules/semver/ranges/ltr.js": {
+    "./outside": "/opt/nodejs/node_modules/semver/ranges/outside.js"
+  },
+  "/opt/nodejs/node_modules/semver/ranges/intersects.js": {
+    "../classes/range": "/opt/nodejs/node_modules/semver/classes/range.js"
+  },
+  "/opt/nodejs/node_modules/semver/ranges/simplify.js": {
+    "../functions/satisfies.js": "/opt/nodejs/node_modules/semver/functions/satisfies.js",
+    "../functions/compare.js": "/opt/nodejs/node_modules/semver/functions/compare.js"
+  },
+  "/opt/nodejs/node_modules/semver/ranges/subset.js": {
+    "../classes/range.js": "/opt/nodejs/node_modules/semver/classes/range.js",
+    "../classes/comparator.js": "/opt/nodejs/node_modules/semver/classes/comparator.js",
+    "../functions/satisfies.js": "/opt/nodejs/node_modules/semver/functions/satisfies.js",
+    "../functions/compare.js": "/opt/nodejs/node_modules/semver/functions/compare.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/propagator-jaeger/build/src/index.js": {
+    "./JaegerPropagator": "/opt/nodejs/node_modules/@opentelemetry/propagator-jaeger/build/src/JaegerPropagator.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/propagator-jaeger/build/src/JaegerPropagator.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/index.js": {
+    "./autoLoader": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/autoLoader.js",
+    "./platform/index": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/platform/index.js",
+    "./instrumentationNodeModuleDefinition": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/instrumentationNodeModuleDefinition.js",
+    "./instrumentationNodeModuleFile": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/instrumentationNodeModuleFile.js",
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/autoLoader.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/api-logs": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/index.js",
+    "./autoLoaderUtils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/autoLoaderUtils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/index.js": {
+    "./types/LogRecord": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/types/LogRecord.js",
+    "./NoopLogger": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/NoopLogger.js",
+    "./NoopLoggerProvider": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/NoopLoggerProvider.js",
+    "./ProxyLogger": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/ProxyLogger.js",
+    "./ProxyLoggerProvider": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/ProxyLoggerProvider.js",
+    "./api/logs": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/api/logs.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/NoopLoggerProvider.js": {
+    "./NoopLogger": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/NoopLogger.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/ProxyLogger.js": {
+    "./NoopLogger": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/NoopLogger.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/ProxyLoggerProvider.js": {
+    "./NoopLoggerProvider": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/NoopLoggerProvider.js",
+    "./ProxyLogger": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/ProxyLogger.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/api/logs.js": {
+    "../internal/global-utils": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/internal/global-utils.js",
+    "../NoopLoggerProvider": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/NoopLoggerProvider.js",
+    "../ProxyLoggerProvider": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/ProxyLoggerProvider.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/internal/global-utils.js": {
+    "../platform": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/platform/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/platform/index.js": {
+    "./node": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/platform/node/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/platform/node/index.js": {
+    "./globalThis": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/platform/node/globalThis.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/platform/index.js": {
+    "./node": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/platform/node/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/platform/node/index.js": {
+    "./instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/platform/node/instrumentation.js",
+    "./normalize": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/platform/node/normalize.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/platform/node/instrumentation.js": {
+    "path": "path",
+    "util": "util",
+    "semver": "/opt/nodejs/node_modules/semver/index.js",
+    "shimmer": "/opt/nodejs/node_modules/shimmer/index.js",
+    "../../instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/instrumentation.js",
+    "./RequireInTheMiddleSingleton": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/platform/node/RequireInTheMiddleSingleton.js",
+    "import-in-the-middle": "/opt/nodejs/node_modules/import-in-the-middle/index.js",
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "require-in-the-middle": "/opt/nodejs/node_modules/require-in-the-middle/index.js",
+    "fs": "fs",
+    "../../utils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/instrumentation.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/api-logs": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/index.js",
+    "shimmer": "/opt/nodejs/node_modules/shimmer/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/platform/node/RequireInTheMiddleSingleton.js": {
+    "require-in-the-middle": "/opt/nodejs/node_modules/require-in-the-middle/index.js",
+    "path": "path",
+    "./ModuleNameTrie": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/platform/node/ModuleNameTrie.js"
+  },
+  "/opt/nodejs/node_modules/require-in-the-middle/index.js": {
+    "path": "path",
+    "module": "module",
+    "resolve": "/opt/nodejs/node_modules/resolve/index.js",
+    "debug": "/opt/nodejs/node_modules/debug/src/index.js",
+    "module-details-from-path": "/opt/nodejs/node_modules/module-details-from-path/index.js"
+  },
+  "/opt/nodejs/node_modules/resolve/index.js": {
+    "./lib/async": "/opt/nodejs/node_modules/resolve/lib/async.js",
+    "./lib/core": "/opt/nodejs/node_modules/resolve/lib/core.js",
+    "./lib/is-core": "/opt/nodejs/node_modules/resolve/lib/is-core.js",
+    "./lib/sync": "/opt/nodejs/node_modules/resolve/lib/sync.js"
+  },
+  "/opt/nodejs/node_modules/resolve/lib/async.js": {
+    "fs": "fs",
+    "./homedir": "/opt/nodejs/node_modules/resolve/lib/homedir.js",
+    "path": "path",
+    "./caller": "/opt/nodejs/node_modules/resolve/lib/caller.js",
+    "./node-modules-paths": "/opt/nodejs/node_modules/resolve/lib/node-modules-paths.js",
+    "./normalize-options": "/opt/nodejs/node_modules/resolve/lib/normalize-options.js",
+    "is-core-module": "/opt/nodejs/node_modules/is-core-module/index.js"
+  },
+  "/opt/nodejs/node_modules/resolve/lib/homedir.js": {
+    "os": "os"
+  },
+  "/opt/nodejs/node_modules/resolve/lib/node-modules-paths.js": {
+    "path": "path"
+  },
+  "/opt/nodejs/node_modules/is-core-module/index.js": {
+    "hasown": "/opt/nodejs/node_modules/hasown/index.js",
+    "./core.json": "/opt/nodejs/node_modules/is-core-module/core.json"
+  },
+  "/opt/nodejs/node_modules/hasown/index.js": {
+    "function-bind": "/opt/nodejs/node_modules/function-bind/index.js"
+  },
+  "/opt/nodejs/node_modules/function-bind/index.js": {
+    "./implementation": "/opt/nodejs/node_modules/function-bind/implementation.js"
+  },
+  "/opt/nodejs/node_modules/resolve/lib/core.js": {
+    "is-core-module": "/opt/nodejs/node_modules/is-core-module/index.js",
+    "./core.json": "/opt/nodejs/node_modules/resolve/lib/core.json"
+  },
+  "/opt/nodejs/node_modules/resolve/lib/is-core.js": {
+    "is-core-module": "/opt/nodejs/node_modules/is-core-module/index.js"
+  },
+  "/opt/nodejs/node_modules/resolve/lib/sync.js": {
+    "is-core-module": "/opt/nodejs/node_modules/is-core-module/index.js",
+    "fs": "fs",
+    "path": "path",
+    "./homedir": "/opt/nodejs/node_modules/resolve/lib/homedir.js",
+    "./caller": "/opt/nodejs/node_modules/resolve/lib/caller.js",
+    "./node-modules-paths": "/opt/nodejs/node_modules/resolve/lib/node-modules-paths.js",
+    "./normalize-options": "/opt/nodejs/node_modules/resolve/lib/normalize-options.js"
+  },
+  "/opt/nodejs/node_modules/debug/src/index.js": {
+    "./node.js": "/opt/nodejs/node_modules/debug/src/node.js"
+  },
+  "/opt/nodejs/node_modules/debug/src/node.js": {
+    "tty": "tty",
+    "util": "util",
+    "./common": "/opt/nodejs/node_modules/debug/src/common.js"
+  },
+  "/opt/nodejs/node_modules/debug/src/common.js": {
+    "ms": "/opt/nodejs/node_modules/debug/node_modules/ms/index.js"
+  },
+  "/opt/nodejs/node_modules/module-details-from-path/index.js": {
+    "path": "path"
+  },
+  "/opt/nodejs/node_modules/import-in-the-middle/index.js": {
+    "path": "path",
+    "module-details-from-path": "/opt/nodejs/node_modules/module-details-from-path/index.js",
+    "url": "url",
+    "worker_threads": "worker_threads",
+    "./lib/register": "/opt/nodejs/node_modules/import-in-the-middle/lib/register.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/platform/node/normalize.js": {
+    "path": "path"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/instrumentationNodeModuleFile.js": {
+    "./platform/index": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/platform/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/index.js": {
+    "./detectors": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/index.js": {
+    "./AwsBeanstalkDetector": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsBeanstalkDetector.js",
+    "./AwsBeanstalkDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsBeanstalkDetectorSync.js",
+    "./AwsEc2Detector": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsEc2Detector.js",
+    "./AwsEc2DetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsEc2DetectorSync.js",
+    "./AwsEcsDetector": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsEcsDetector.js",
+    "./AwsEcsDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsEcsDetectorSync.js",
+    "./AwsEksDetector": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsEksDetector.js",
+    "./AwsEksDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsEksDetectorSync.js",
+    "./AwsLambdaDetector": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsLambdaDetector.js",
+    "./AwsLambdaDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsLambdaDetectorSync.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsBeanstalkDetector.js": {
+    "./AwsBeanstalkDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsBeanstalkDetectorSync.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsBeanstalkDetectorSync.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "@opentelemetry/resources": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/index.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+    "fs": "fs",
+    "util": "util"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsEc2Detector.js": {
+    "./AwsEc2DetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsEc2DetectorSync.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsEc2DetectorSync.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "@opentelemetry/resources": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/index.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+    "http": "http"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsEcsDetector.js": {
+    "./AwsEcsDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsEcsDetectorSync.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsEcsDetectorSync.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "@opentelemetry/resources": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/index.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+    "./SemanticResourceAttributes": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/SemanticResourceAttributes.js",
+    "http": "http",
+    "util": "util",
+    "fs": "fs",
+    "os": "os"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsEksDetector.js": {
+    "./AwsEksDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsEksDetectorSync.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsEksDetectorSync.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "@opentelemetry/resources": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/index.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+    "https": "https",
+    "fs": "fs",
+    "util": "util"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsLambdaDetector.js": {
+    "./AwsLambdaDetectorSync": "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsLambdaDetectorSync.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/resource-detector-aws/build/src/detectors/AwsLambdaDetectorSync.js": {
+    "@opentelemetry/resources": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/index.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/index.js": {
+    "./aws-sdk": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/aws-sdk.js",
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/aws-sdk.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "./enums": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/enums.js",
+    "./services": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/index.js",
+    "./version": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/version.js",
+    "@opentelemetry/instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/index.js",
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/utils.js",
+    "./propwrap": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/propwrap.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/index.js": {
+    "./ServicesExtensions": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/ServicesExtensions.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/ServicesExtensions.js": {
+    "./sqs": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/sqs.js",
+    "./dynamodb": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/dynamodb.js",
+    "./sns": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/sns.js",
+    "./lambda": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/lambda.js",
+    "./s3": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/s3.js",
+    "./kinesis": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/kinesis.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/sqs.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/propagation-utils": "/opt/nodejs/node_modules/@opentelemetry/propagation-utils/build/src/index.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+    "./MessageAttributes": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/MessageAttributes.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/propagation-utils/build/src/index.js": {
+    "./pubsub-propagation": "/opt/nodejs/node_modules/@opentelemetry/propagation-utils/build/src/pubsub-propagation.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/propagation-utils/build/src/pubsub-propagation.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/MessageAttributes.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/dynamodb.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/sns.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+    "./MessageAttributes": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/MessageAttributes.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/lambda.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/s3.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "../enums": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/enums.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/kinesis.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "../enums": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/enums.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/utils.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+    "./enums": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/enums.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-lambda/build/src/index.js": {
+    "./instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-lambda/build/src/instrumentation.js",
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-lambda/build/src/types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-lambda/build/src/instrumentation.js": {
+    "path": "path",
+    "fs": "fs",
+    "@opentelemetry/instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/index.js",
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+    "@opentelemetry/semantic-conventions/incubating": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index-incubating.js",
+    "./version": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-aws-lambda/build/src/version.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index-incubating.js": {
+    "./stable_attributes": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/stable_attributes.js",
+    "./stable_metrics": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/stable_metrics.js",
+    "./experimental_attributes": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/experimental_attributes.js",
+    "./experimental_metrics": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/experimental_metrics.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/exporter-trace-otlp-proto/build/src/index.js": {
+    "./platform": "/opt/nodejs/node_modules/@opentelemetry/exporter-trace-otlp-proto/build/src/platform/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/exporter-trace-otlp-proto/build/src/platform/index.js": {
+    "./node": "/opt/nodejs/node_modules/@opentelemetry/exporter-trace-otlp-proto/build/src/platform/node/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/exporter-trace-otlp-proto/build/src/platform/node/index.js": {
+    "./OTLPTraceExporter": "/opt/nodejs/node_modules/@opentelemetry/exporter-trace-otlp-proto/build/src/platform/node/OTLPTraceExporter.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/exporter-trace-otlp-proto/build/src/platform/node/OTLPTraceExporter.js": {
+    "@opentelemetry/otlp-exporter-base": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/index.js",
+    "@opentelemetry/otlp-transformer": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/index.js",
+    "../../version": "/opt/nodejs/node_modules/@opentelemetry/exporter-trace-otlp-proto/build/src/version.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/index.js": {
+    "./platform": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/index.js",
+    "./OTLPExporterBase": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/OTLPExporterBase.js",
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/types.js",
+    "./util": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/util.js",
+    "./configuration/shared-configuration": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/configuration/shared-configuration.js",
+    "./configuration/shared-env-configuration": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/configuration/shared-env-configuration.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/index.js": {
+    "./node": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/node/index.js",
+    "./browser": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/browser/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/node/index.js": {
+    "./OTLPExporterNodeBase": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/node/OTLPExporterNodeBase.js",
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/node/types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/node/OTLPExporterNodeBase.js": {
+    "../../OTLPExporterBase": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/OTLPExporterBase.js",
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "./http-exporter-transport": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/node/http-exporter-transport.js",
+    "../../types": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/types.js",
+    "../../retrying-transport": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/retrying-transport.js",
+    "./convert-legacy-agent-options": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/node/convert-legacy-agent-options.js",
+    "../../configuration/otlp-http-configuration": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/configuration/otlp-http-configuration.js",
+    "../../configuration/otlp-http-env-configuration": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/configuration/otlp-http-env-configuration.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/OTLPExporterBase.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/configuration/otlp-http-configuration.js": {
+    "./shared-configuration": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/configuration/shared-configuration.js",
+    "../util": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/util.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/util.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/configuration/otlp-http-env-configuration.js": {
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "./shared-env-configuration": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/configuration/shared-env-configuration.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/configuration/shared-env-configuration.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/browser/index.js": {
+    "./OTLPExporterBrowserBase": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/browser/OTLPExporterBrowserBase.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/browser/OTLPExporterBrowserBase.js": {
+    "../../OTLPExporterBase": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/OTLPExporterBase.js",
+    "../../types": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/types.js",
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "./xhr-transport": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/browser/xhr-transport.js",
+    "./send-beacon-transport": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/browser/send-beacon-transport.js",
+    "../../retrying-transport": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/retrying-transport.js",
+    "../../configuration/otlp-http-configuration": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/configuration/otlp-http-configuration.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/browser/xhr-transport.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "../../is-export-retryable": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/is-export-retryable.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/browser/send-beacon-transport.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/index.js": {
+    "./common": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/common/index.js",
+    "./trace/types": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/trace/types.js",
+    "./trace": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/trace/index.js",
+    "./metrics": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/metrics/index.js",
+    "./logs": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/logs/index.js",
+    "./protobuf/serializers": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/protobuf/serializers.js",
+    "./json/serializers": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/json/serializers.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/common/index.js": {
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/trace/index.js": {
+    "./internal": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/trace/internal.js",
+    "../common": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/common/index.js",
+    "../common/internal": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/common/internal.js",
+    "../resource/internal": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/resource/internal.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/trace/internal.js": {
+    "../common/internal": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/common/internal.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/resource/internal.js": {
+    "../common/internal": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/common/internal.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/metrics/index.js": {
+    "./internal": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/metrics/internal.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/metrics/internal.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/sdk-metrics": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/index.js",
+    "../common": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/common/index.js",
+    "../common/internal": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/common/internal.js",
+    "../resource/internal": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/resource/internal.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/index.js": {
+    "./export/AggregationTemporality": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/AggregationTemporality.js",
+    "./export/MetricData": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/MetricData.js",
+    "./export/MetricReader": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/MetricReader.js",
+    "./export/PeriodicExportingMetricReader": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/PeriodicExportingMetricReader.js",
+    "./export/InMemoryMetricExporter": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/InMemoryMetricExporter.js",
+    "./export/ConsoleMetricExporter": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/ConsoleMetricExporter.js",
+    "./InstrumentDescriptor": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/InstrumentDescriptor.js",
+    "./MeterProvider": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/MeterProvider.js",
+    "./view/Aggregation": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/view/Aggregation.js",
+    "./view/View": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/view/View.js",
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/MetricReader.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "../utils": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/utils.js",
+    "./AggregationSelector": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/AggregationSelector.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/AggregationSelector.js": {
+    "../view/Aggregation": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/view/Aggregation.js",
+    "./AggregationTemporality": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/AggregationTemporality.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/view/Aggregation.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "../aggregator": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/index.js",
+    "../InstrumentDescriptor": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/InstrumentDescriptor.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/index.js": {
+    "./Drop": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/Drop.js",
+    "./Histogram": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/Histogram.js",
+    "./ExponentialHistogram": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/ExponentialHistogram.js",
+    "./LastValue": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/LastValue.js",
+    "./Sum": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/Sum.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/Drop.js": {
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/Histogram.js": {
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/types.js",
+    "../export/MetricData": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/MetricData.js",
+    "../InstrumentDescriptor": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/InstrumentDescriptor.js",
+    "../utils": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/InstrumentDescriptor.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/ExponentialHistogram.js": {
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/types.js",
+    "../export/MetricData": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/MetricData.js",
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "../InstrumentDescriptor": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/InstrumentDescriptor.js",
+    "./exponential-histogram/Buckets": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/exponential-histogram/Buckets.js",
+    "./exponential-histogram/mapping/getMapping": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/exponential-histogram/mapping/getMapping.js",
+    "./exponential-histogram/util": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/exponential-histogram/util.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/exponential-histogram/mapping/getMapping.js": {
+    "./ExponentMapping": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/exponential-histogram/mapping/ExponentMapping.js",
+    "./LogarithmMapping": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/exponential-histogram/mapping/LogarithmMapping.js",
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/exponential-histogram/mapping/types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/exponential-histogram/mapping/ExponentMapping.js": {
+    "./ieee754": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/exponential-histogram/mapping/ieee754.js",
+    "../util": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/exponential-histogram/util.js",
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/exponential-histogram/mapping/types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/exponential-histogram/mapping/LogarithmMapping.js": {
+    "./ieee754": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/exponential-histogram/mapping/ieee754.js",
+    "../util": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/exponential-histogram/util.js",
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/exponential-histogram/mapping/types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/LastValue.js": {
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/types.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "../export/MetricData": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/MetricData.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/Sum.js": {
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/aggregator/types.js",
+    "../export/MetricData": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/MetricData.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/PeriodicExportingMetricReader.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "./MetricReader": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/MetricReader.js",
+    "../utils": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/InMemoryMetricExporter.js": {
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/ConsoleMetricExporter.js": {
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "./AggregationSelector": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/AggregationSelector.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/MeterProvider.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/resources": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/index.js",
+    "./state/MeterProviderSharedState": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/MeterProviderSharedState.js",
+    "./state/MetricCollector": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/MetricCollector.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/MeterProviderSharedState.js": {
+    "../utils": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/utils.js",
+    "../view/ViewRegistry": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/view/ViewRegistry.js",
+    "./MeterSharedState": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/MeterSharedState.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/MeterSharedState.js": {
+    "../InstrumentDescriptor": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/InstrumentDescriptor.js",
+    "../Meter": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/Meter.js",
+    "../utils": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/utils.js",
+    "./AsyncMetricStorage": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/AsyncMetricStorage.js",
+    "./MetricStorageRegistry": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/MetricStorageRegistry.js",
+    "./MultiWritableMetricStorage": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/MultiWritableMetricStorage.js",
+    "./ObservableRegistry": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/ObservableRegistry.js",
+    "./SyncMetricStorage": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/SyncMetricStorage.js",
+    "../view/AttributesProcessor": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/view/AttributesProcessor.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/Meter.js": {
+    "./InstrumentDescriptor": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/InstrumentDescriptor.js",
+    "./Instruments": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/Instruments.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/Instruments.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/AsyncMetricStorage.js": {
+    "./MetricStorage": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/MetricStorage.js",
+    "./DeltaMetricProcessor": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/DeltaMetricProcessor.js",
+    "./TemporalMetricProcessor": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/TemporalMetricProcessor.js",
+    "./HashMap": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/HashMap.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/MetricStorage.js": {
+    "../InstrumentDescriptor": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/InstrumentDescriptor.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/DeltaMetricProcessor.js": {
+    "./HashMap": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/HashMap.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/HashMap.js": {
+    "../utils": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/TemporalMetricProcessor.js": {
+    "../export/AggregationTemporality": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/export/AggregationTemporality.js",
+    "./HashMap": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/HashMap.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/MetricStorageRegistry.js": {
+    "../InstrumentDescriptor": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/InstrumentDescriptor.js",
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "../view/RegistrationConflicts": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/view/RegistrationConflicts.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/ObservableRegistry.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "../Instruments": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/Instruments.js",
+    "../ObservableResult": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/ObservableResult.js",
+    "../utils": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/ObservableResult.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "./state/HashMap": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/HashMap.js",
+    "./Instruments": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/Instruments.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/SyncMetricStorage.js": {
+    "./MetricStorage": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/MetricStorage.js",
+    "./DeltaMetricProcessor": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/DeltaMetricProcessor.js",
+    "./TemporalMetricProcessor": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/TemporalMetricProcessor.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/state/MetricCollector.js": {
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/view/View.js": {
+    "./Predicate": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/view/Predicate.js",
+    "./AttributesProcessor": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/view/AttributesProcessor.js",
+    "./InstrumentSelector": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/view/InstrumentSelector.js",
+    "./MeterSelector": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/view/MeterSelector.js",
+    "./Aggregation": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/view/Aggregation.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/view/InstrumentSelector.js": {
+    "./Predicate": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/view/Predicate.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/view/MeterSelector.js": {
+    "./Predicate": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/view/Predicate.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/logs/index.js": {
+    "../common": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/common/index.js",
+    "../common/internal": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/common/internal.js",
+    "../resource/internal": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/resource/internal.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/protobuf/serializers.js": {
+    "../generated/root": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/generated/root.js",
+    "../trace": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/trace/index.js",
+    "../metrics": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/metrics/index.js",
+    "../logs": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/logs/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/generated/root.js": {
+    "protobufjs/minimal": "/opt/nodejs/node_modules/protobufjs/minimal.js"
+  },
+  "/opt/nodejs/node_modules/protobufjs/minimal.js": {
+    "./src/index-minimal": "/opt/nodejs/node_modules/protobufjs/src/index-minimal.js"
+  },
+  "/opt/nodejs/node_modules/protobufjs/src/index-minimal.js": {
+    "./writer": "/opt/nodejs/node_modules/protobufjs/src/writer.js",
+    "./writer_buffer": "/opt/nodejs/node_modules/protobufjs/src/writer_buffer.js",
+    "./reader": "/opt/nodejs/node_modules/protobufjs/src/reader.js",
+    "./reader_buffer": "/opt/nodejs/node_modules/protobufjs/src/reader_buffer.js",
+    "./util/minimal": "/opt/nodejs/node_modules/protobufjs/src/util/minimal.js",
+    "./rpc": "/opt/nodejs/node_modules/protobufjs/src/rpc.js",
+    "./roots": "/opt/nodejs/node_modules/protobufjs/src/roots.js"
+  },
+  "/opt/nodejs/node_modules/protobufjs/src/writer.js": {
+    "./util/minimal": "/opt/nodejs/node_modules/protobufjs/src/util/minimal.js"
+  },
+  "/opt/nodejs/node_modules/protobufjs/src/util/minimal.js": {
+    "@protobufjs/aspromise": "/opt/nodejs/node_modules/@protobufjs/aspromise/index.js",
+    "@protobufjs/base64": "/opt/nodejs/node_modules/@protobufjs/base64/index.js",
+    "@protobufjs/eventemitter": "/opt/nodejs/node_modules/@protobufjs/eventemitter/index.js",
+    "@protobufjs/float": "/opt/nodejs/node_modules/@protobufjs/float/index.js",
+    "@protobufjs/inquire": "/opt/nodejs/node_modules/@protobufjs/inquire/index.js",
+    "@protobufjs/utf8": "/opt/nodejs/node_modules/@protobufjs/utf8/index.js",
+    "@protobufjs/pool": "/opt/nodejs/node_modules/@protobufjs/pool/index.js",
+    "./longbits": "/opt/nodejs/node_modules/protobufjs/src/util/longbits.js"
+  },
+  "/opt/nodejs/node_modules/protobufjs/src/util/longbits.js": {
+    "../util/minimal": "/opt/nodejs/node_modules/protobufjs/src/util/minimal.js"
+  },
+  "/opt/nodejs/node_modules/@protobufjs/inquire/index.js": {
+    "buffer": "buffer",
+    "long": "/opt/nodejs/node_modules/long/umd/index.js"
+  },
+  "/opt/nodejs/node_modules/protobufjs/src/writer_buffer.js": {
+    "./writer": "/opt/nodejs/node_modules/protobufjs/src/writer.js",
+    "./util/minimal": "/opt/nodejs/node_modules/protobufjs/src/util/minimal.js"
+  },
+  "/opt/nodejs/node_modules/protobufjs/src/reader.js": {
+    "./util/minimal": "/opt/nodejs/node_modules/protobufjs/src/util/minimal.js"
+  },
+  "/opt/nodejs/node_modules/protobufjs/src/reader_buffer.js": {
+    "./reader": "/opt/nodejs/node_modules/protobufjs/src/reader.js",
+    "./util/minimal": "/opt/nodejs/node_modules/protobufjs/src/util/minimal.js"
+  },
+  "/opt/nodejs/node_modules/protobufjs/src/rpc.js": {
+    "./rpc/service": "/opt/nodejs/node_modules/protobufjs/src/rpc/service.js"
+  },
+  "/opt/nodejs/node_modules/protobufjs/src/rpc/service.js": {
+    "../util/minimal": "/opt/nodejs/node_modules/protobufjs/src/util/minimal.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/json/serializers.js": {
+    "../trace": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/trace/index.js",
+    "../metrics": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/metrics/index.js",
+    "../logs": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/logs/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-proto/build/src/index.js": {
+    "./OTLPMetricExporter": "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-proto/build/src/OTLPMetricExporter.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-proto/build/src/OTLPMetricExporter.js": {
+    "@opentelemetry/exporter-metrics-otlp-http": "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-http/build/src/index.js",
+    "@opentelemetry/otlp-exporter-base": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/index.js",
+    "@opentelemetry/otlp-transformer": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/index.js",
+    "./version": "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-proto/build/src/version.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-http/build/src/index.js": {
+    "./platform": "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-http/build/src/platform/index.js",
+    "./OTLPMetricExporterOptions": "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-http/build/src/OTLPMetricExporterOptions.js",
+    "./OTLPMetricExporterBase": "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-http/build/src/OTLPMetricExporterBase.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-http/build/src/platform/index.js": {
+    "./node": "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-http/build/src/platform/node/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-http/build/src/platform/node/index.js": {
+    "./OTLPMetricExporter": "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-http/build/src/platform/node/OTLPMetricExporter.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-http/build/src/platform/node/OTLPMetricExporter.js": {
+    "../../OTLPMetricExporterBase": "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-http/build/src/OTLPMetricExporterBase.js",
+    "@opentelemetry/otlp-exporter-base": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/index.js",
+    "@opentelemetry/otlp-transformer": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/index.js",
+    "../../version": "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-http/build/src/version.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-http/build/src/OTLPMetricExporterBase.js": {
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "@opentelemetry/sdk-metrics": "/opt/nodejs/node_modules/@opentelemetry/sdk-metrics/build/src/index.js",
+    "./OTLPMetricExporterOptions": "/opt/nodejs/node_modules/@opentelemetry/exporter-metrics-otlp-http/build/src/OTLPMetricExporterOptions.js",
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/exporter-logs-otlp-proto/build/src/index.js": {
+    "./platform": "/opt/nodejs/node_modules/@opentelemetry/exporter-logs-otlp-proto/build/src/platform/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/exporter-logs-otlp-proto/build/src/platform/index.js": {
+    "./node": "/opt/nodejs/node_modules/@opentelemetry/exporter-logs-otlp-proto/build/src/platform/node/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/exporter-logs-otlp-proto/build/src/platform/node/index.js": {
+    "./OTLPLogExporter": "/opt/nodejs/node_modules/@opentelemetry/exporter-logs-otlp-proto/build/src/platform/node/OTLPLogExporter.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/exporter-logs-otlp-proto/build/src/platform/node/OTLPLogExporter.js": {
+    "@opentelemetry/otlp-exporter-base": "/opt/nodejs/node_modules/@opentelemetry/otlp-exporter-base/build/src/index.js",
+    "@opentelemetry/otlp-transformer": "/opt/nodejs/node_modules/@opentelemetry/otlp-transformer/build/src/index.js",
+    "../../version": "/opt/nodejs/node_modules/@opentelemetry/exporter-logs-otlp-proto/build/src/version.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/auto-configuration-propagators/build/src/index.js": {
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/auto-configuration-propagators/build/src/utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/auto-configuration-propagators/build/src/utils.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "@opentelemetry/propagator-b3": "/opt/nodejs/node_modules/@opentelemetry/propagator-b3/build/src/index.js",
+    "@opentelemetry/propagator-jaeger": "/opt/nodejs/node_modules/@opentelemetry/propagator-jaeger/build/src/index.js",
+    "@opentelemetry/propagator-ot-trace": "/opt/nodejs/node_modules/@opentelemetry/propagator-ot-trace/build/src/index.js",
+    "@opentelemetry/propagator-aws-xray": "/opt/nodejs/node_modules/@opentelemetry/propagator-aws-xray/build/src/index.js",
+    "@opentelemetry/propagator-aws-xray-lambda": "/opt/nodejs/node_modules/@opentelemetry/propagator-aws-xray-lambda/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/propagator-ot-trace/build/src/index.js": {
+    "./OTTracePropagator": "/opt/nodejs/node_modules/@opentelemetry/propagator-ot-trace/build/src/OTTracePropagator.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/propagator-ot-trace/build/src/OTTracePropagator.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/propagator-aws-xray/build/src/index.js": {
+    "./AWSXRayPropagator": "/opt/nodejs/node_modules/@opentelemetry/propagator-aws-xray/build/src/AWSXRayPropagator.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/propagator-aws-xray/build/src/AWSXRayPropagator.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/propagator-aws-xray-lambda/build/src/index.js": {
+    "./AWSXRayLambdaPropagator": "/opt/nodejs/node_modules/@opentelemetry/propagator-aws-xray-lambda/build/src/AWSXRayLambdaPropagator.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/propagator-aws-xray-lambda/build/src/AWSXRayLambdaPropagator.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/propagator-aws-xray": "/opt/nodejs/node_modules/@opentelemetry/propagator-aws-xray/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/index.js": {
+    "./LoggerProvider": "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/LoggerProvider.js",
+    "./LogRecord": "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/LogRecord.js",
+    "./export/NoopLogRecordProcessor": "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/export/NoopLogRecordProcessor.js",
+    "./export/ConsoleLogRecordExporter": "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/export/ConsoleLogRecordExporter.js",
+    "./export/SimpleLogRecordProcessor": "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/export/SimpleLogRecordProcessor.js",
+    "./export/InMemoryLogRecordExporter": "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/export/InMemoryLogRecordExporter.js",
+    "./platform": "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/platform/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/LoggerProvider.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/api-logs": "/opt/nodejs/node_modules/@opentelemetry/api-logs/build/src/index.js",
+    "@opentelemetry/resources": "/opt/nodejs/node_modules/@opentelemetry/resources/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "./Logger": "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/Logger.js",
+    "./config": "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/config.js",
+    "./MultiLogRecordProcessor": "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/MultiLogRecordProcessor.js",
+    "./internal/LoggerProviderSharedState": "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/internal/LoggerProviderSharedState.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/Logger.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "./LogRecord": "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/LogRecord.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/LogRecord.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/config.js": {
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/MultiLogRecordProcessor.js": {
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/internal/LoggerProviderSharedState.js": {
+    "../export/NoopLogRecordProcessor": "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/export/NoopLogRecordProcessor.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/export/ConsoleLogRecordExporter.js": {
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/export/SimpleLogRecordProcessor.js": {
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/export/InMemoryLogRecordExporter.js": {
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/platform/index.js": {
+    "./node": "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/platform/node/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/platform/node/index.js": {
+    "./export/BatchLogRecordProcessor": "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/platform/node/export/BatchLogRecordProcessor.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/platform/node/export/BatchLogRecordProcessor.js": {
+    "../../../export/BatchLogRecordProcessorBase": "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/export/BatchLogRecordProcessorBase.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/sdk-logs/build/src/export/BatchLogRecordProcessorBase.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-dns/build/src/index.js": {
+    "./instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-dns/build/src/instrumentation.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-dns/build/src/instrumentation.js": {
+    "@opentelemetry/api": "/opt/nodejs/node_modules/@opentelemetry/api/build/src/index.js",
+    "@opentelemetry/instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation/build/src/index.js",
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-dns/build/src/utils.js",
+    "./version": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-dns/build/src/version.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-dns/build/src/utils.js": {
+    "./enums/AttributeNames": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-dns/build/src/enums/AttributeNames.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-express/build/src/index.js": {
+    "./instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-express/build/src/instrumentation.js",
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-express/build/src/types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-express/build/src/instrumentation.js": {
+    "@opentelemetry/core": "/opt/nodejs/node_modules/@opentelemetry/core/build/src/index.js",
+    "./enums/ExpressLayerType": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-express/build/src/enums/ExpressLayerType.js",
+    "./enums/AttributeNames": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-express/build/src/enums/AttributeNames.js",
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-express/build/src/utils.js",
+    "./version": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-express/build/src/version.js",
+    "@opentelemetry/semantic-conventions": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-express/build/src/utils.js": {
+    "./internal-types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-express/build/src/internal-types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-graphql/build/src/index.js": {
+    "./instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-graphql/build/src/instrumentation.js",
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-graphql/build/src/types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-graphql/build/src/instrumentation.js": {
+    "./enum": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-graphql/build/src/enum.js",
+    "./enums/AttributeNames": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-graphql/build/src/enums/AttributeNames.js",
+    "./symbols": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-graphql/build/src/symbols.js",
+    "./internal-types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-graphql/build/src/internal-types.js",
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-graphql/build/src/utils.js",
+    "./version": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-graphql/build/src/version.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-grpc/build/src/index.js": {
+    "./instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-grpc/build/src/instrumentation.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-grpc/build/src/instrumentation.js": {
+    "./serverUtils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-grpc/build/src/serverUtils.js",
+    "./clientUtils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-grpc/build/src/clientUtils.js",
+    "./enums/AttributeValues": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-grpc/build/src/enums/AttributeValues.js",
+    "./version": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-grpc/build/src/version.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-grpc/build/src/serverUtils.js": {
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-grpc/build/src/utils.js",
+    "./enums/AttributeNames": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-grpc/build/src/enums/AttributeNames.js",
+    "./status-code": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-grpc/build/src/status-code.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-grpc/build/src/clientUtils.js": {
+    "events": "events"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-hapi/build/src/index.js": {
+    "./instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-hapi/build/src/instrumentation.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-hapi/build/src/instrumentation.js": {
+    "./version": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-hapi/build/src/version.js",
+    "./internal-types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-hapi/build/src/internal-types.js",
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-hapi/build/src/utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-hapi/build/src/utils.js": {
+    "./enums/AttributeNames": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-hapi/build/src/enums/AttributeNames.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-http/build/src/index.js": {
+    "./http": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-http/build/src/http.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-http/build/src/http.js": {
+    "semver": "/opt/nodejs/node_modules/semver/index.js",
+    "url": "url",
+    "./version": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-http/build/src/version.js",
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-http/build/src/utils.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-http/build/src/utils.js": {
+    "./enums/AttributeNames": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-http/build/src/enums/AttributeNames.js",
+    "forwarded-parse": "/opt/nodejs/node_modules/forwarded-parse/index.js"
+  },
+  "/opt/nodejs/node_modules/forwarded-parse/index.js": {
+    "util": "util",
+    "./lib/error": "/opt/nodejs/node_modules/forwarded-parse/lib/error.js",
+    "./lib/ascii": "/opt/nodejs/node_modules/forwarded-parse/lib/ascii.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-ioredis/build/src/index.js": {
+    "./instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-ioredis/build/src/instrumentation.js",
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-ioredis/build/src/types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-ioredis/build/src/instrumentation.js": {
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-ioredis/build/src/utils.js",
+    "@opentelemetry/redis-common": "/opt/nodejs/node_modules/@opentelemetry/redis-common/build/src/index.js",
+    "./version": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-ioredis/build/src/version.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-koa/build/src/index.js": {
+    "./instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-koa/build/src/instrumentation.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-koa/build/src/instrumentation.js": {
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-koa/build/src/types.js",
+    "./version": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-koa/build/src/version.js",
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-koa/build/src/utils.js",
+    "./internal-types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-koa/build/src/internal-types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-koa/build/src/utils.js": {
+    "./enums/AttributeNames": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-koa/build/src/enums/AttributeNames.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-mongodb/build/src/index.js": {
+    "./instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-mongodb/build/src/instrumentation.js",
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-mongodb/build/src/types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-mongodb/build/src/instrumentation.js": {
+    "./internal-types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-mongodb/build/src/internal-types.js",
+    "./version": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-mongodb/build/src/version.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-mysql/build/src/index.js": {
+    "./instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-mysql/build/src/instrumentation.js",
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-mysql/build/src/types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-mysql/build/src/instrumentation.js": {
+    "./AttributeNames": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-mysql/build/src/AttributeNames.js",
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-mysql/build/src/utils.js",
+    "./version": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-mysql/build/src/version.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-net/build/src/index.js": {
+    "./instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-net/build/src/instrumentation.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-net/build/src/instrumentation.js": {
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-net/build/src/types.js",
+    "./internal-types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-net/build/src/internal-types.js",
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-net/build/src/utils.js",
+    "./version": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-net/build/src/version.js",
+    "tls": "tls"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-net/build/src/utils.js": {
+    "os": "os"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-pg/build/src/index.js": {
+    "./instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-pg/build/src/instrumentation.js",
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-pg/build/src/types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-pg/build/src/instrumentation.js": {
+    "./internal-types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-pg/build/src/internal-types.js",
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-pg/build/src/utils.js",
+    "@opentelemetry/sql-common": "/opt/nodejs/node_modules/@opentelemetry/sql-common/build/src/index.js",
+    "./version": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-pg/build/src/version.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-pg/build/src/utils.js": {
+    "./enums/AttributeNames": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-pg/build/src/enums/AttributeNames.js",
+    "@opentelemetry/semantic-conventions/incubating": "/opt/nodejs/node_modules/@opentelemetry/semantic-conventions/build/src/index-incubating.js",
+    "./enums/SpanNames": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-pg/build/src/enums/SpanNames.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-redis/build/src/index.js": {
+    "./instrumentation": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-redis/build/src/instrumentation.js",
+    "./types": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-redis/build/src/types.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-redis/build/src/instrumentation.js": {
+    "./utils": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-redis/build/src/utils.js",
+    "./version": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-redis/build/src/version.js"
+  },
+  "/opt/nodejs/node_modules/@opentelemetry/instrumentation-redis/build/src/utils.js": {
+    "./": "/opt/nodejs/node_modules/@opentelemetry/instrumentation-redis/build/src/index.js"
+  }
+}
