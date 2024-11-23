@@ -64,17 +64,18 @@ func NewManager(ctx context.Context, logger *zap.Logger, version string) (contex
 
 	extensionClient := extensionapi.NewClient(logger, os.Getenv("AWS_LAMBDA_RUNTIME_API"))
 
-	extensionId, ok := os.LookupEnv("EXTENSION_ID")
+	extensionID, ok := os.LookupEnv("EXTENSION_ID")
 
 	if ok {
-		logger.Info("Using already registered extension with id", zap.String("extensionId", extensionId))
+		extensionClient.AssignRegister(extensionID)
+		logger.Info("Using already registered extension with id", zap.String("extensionID", extensionID))
 	} else {
 		res, err := extensionClient.Register(ctx, extensionName)
 		if err != nil {
 			logger.Fatal("Cannot register extension", zap.Error(err))
 		} else {
-			extensionId = res.ExtensionID
-			logger.Info("Registered extension with id", zap.String("extensionId", extensionId))
+			extensionID = res.ExtensionID
+			logger.Info("Registered extension with id", zap.String("extensionId", extensionID))
 		}
 	}
 
@@ -85,7 +86,7 @@ func NewManager(ctx context.Context, logger *zap.Logger, version string) (contex
 	}
 
 	telemetryClient := telemetryapi.NewClient(logger)
-	_, err = telemetryClient.Subscribe(ctx, []telemetryapi.EventType{telemetryapi.Platform}, extensionId, addr)
+	_, err = telemetryClient.Subscribe(ctx, []telemetryapi.EventType{telemetryapi.Platform}, extensionID, addr)
 	if err != nil {
 		logger.Fatal("Cannot register Telemetry API client", zap.Error(err))
 	}
@@ -96,7 +97,7 @@ func NewManager(ctx context.Context, logger *zap.Logger, version string) (contex
 		listener:        listener,
 	}
 
-	factories, _ := lambdacomponents.Components(extensionId)
+	factories, _ := lambdacomponents.Components(extensionID)
 	lm.collector = collector.NewCollector(logger, factories, version)
 
 	return ctx, lm

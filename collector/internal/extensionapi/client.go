@@ -117,6 +117,10 @@ func (e *Client) Register(ctx context.Context, filename string) (*RegisterRespon
 	return &registerResp, nil
 }
 
+func (e *Client) AssignRegister(extensionID string) {
+	e.extensionID = extensionID
+}
+
 // NextEvent blocks while long polling for the next lambda invoke or shutdown.
 func (e *Client) NextEvent(ctx context.Context) (*NextEventResponse, error) {
 	const action = "/event/next"
