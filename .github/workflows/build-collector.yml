@@ -25,11 +25,3 @@ jobs:
         with:
           name: opentelemetry-collector-layer-${{ matrix.architecture }}.zip
           path: ${{ github.workspace }}/collector/build/opentelemetry-collector-layer-${{ matrix.architecture }}.zip
-      - name: Save Collector Version
-        if: ${{ matrix.architecture == 'amd64' }}
-        id: save-collector-version
-        shell: bash
-        # `./collector -v` output is in the form `v0.75.0`
-        run: |
-          COLLECTOR_VERSION=$( ${{ github.workspace }}/collector/build/extensions/collector -v)
-          echo "COLLECTOR_VERSION=$COLLECTOR_VERSION" >> $GITHUB_OUTPUT
