@@ -19,10 +19,10 @@ import (
 	"flag"
 	"fmt"
 	"github.com/open-telemetry/opentelemetry-lambda/collector/lambdalifecycle"
-	"os"
-
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
+	"os"
+	"time"
 
 	"github.com/open-telemetry/opentelemetry-lambda/collector/internal/lifecycle"
 )
@@ -36,6 +36,9 @@ var (
 )
 
 func main() {
+	fmt.Printf("Starting OpenTelemetry Lambda extension at %f ...\n",
+		float64(time.Now().UnixNano())/1_000_000_000)
+
 	versionFlag := flag.Bool("v", false, "prints version information")
 	flag.Parse()
 	if *versionFlag {
