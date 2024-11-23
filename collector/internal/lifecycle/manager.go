@@ -73,7 +73,7 @@ func NewManager(ctx context.Context, logger *zap.Logger, version string) (contex
 		if err != nil {
 			logger.Fatal("Cannot register extension", zap.Error(err))
 		} else {
-			extensionId := res.ExtensionID
+			extensionId = res.ExtensionID
 			logger.Info("Registered extension with id", zap.String("extensionId", extensionId))
 		}
 	}
