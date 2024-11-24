@@ -19,8 +19,8 @@ import (
 	"fmt"
 	"os"
 
-	//	"github.com/open-telemetry/opentelemetry-collector-contrib/confmap/provider/s3provider"
-	//	"github.com/open-telemetry/opentelemetry-collector-contrib/confmap/provider/secretsmanagerprovider"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/confmap/provider/s3provider"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/confmap/provider/secretsmanagerprovider"
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/confmap"
 	"go.opentelemetry.io/collector/confmap/provider/envprovider"
@@ -72,15 +72,8 @@ func NewCollector(logger *zap.Logger, factories otelcol.Factories, version strin
 	l := logger.Named("NewCollector")
 	cfgSet := otelcol.ConfigProviderSettings{
 		ResolverSettings: confmap.ResolverSettings{
-			URIs: []string{getConfig(l)},
-			ProviderFactories: []confmap.ProviderFactory{
-				fileprovider.NewFactory(),
-				envprovider.NewFactory(),
-				yamlprovider.NewFactory(),
-				httpprovider.NewFactory(),
-				//s3provider.NewFactory(),
-				//secretsmanagerprovider.NewFactory(),
-			},
+			URIs:              []string{getConfig(l)},
+			ProviderFactories: []confmap.ProviderFactory{fileprovider.NewFactory(), envprovider.NewFactory(), yamlprovider.NewFactory(), httpprovider.NewFactory(), s3provider.NewFactory(), secretsmanagerprovider.NewFactory()},
 			ConverterFactories: []confmap.ConverterFactory{
 				confmap.NewConverterFactory(func(set confmap.ConverterSettings) confmap.Converter {
 					return disablequeuedretryconverter.New()
