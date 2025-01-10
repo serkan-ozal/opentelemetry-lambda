@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
+    "module": "ES6",
+    "moduleResolution": "node",
+    "target": "es2017",
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "declaration": true,
     "declarationMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "commonjs",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
@@ -15,7 +17,6 @@
     "sourceMap": true,
     "strict": true,
     "strictNullChecks": true,
-    "target": "es2017",
     "incremental": true,
     "newLine": "LF"
   },

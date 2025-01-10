@@ -1,6 +1,5 @@
 import {
   NodeTracerConfig,
-  NodeTracerProvider,
 } from '@opentelemetry/sdk-trace-node';
 import {
   BatchSpanProcessor,
@@ -32,19 +31,25 @@ import {
   DiagConsoleLogger,
   DiagLogLevel,
   metrics,
-  propagation,
+  propagation, TextMapPropagator,
   trace,
+  TracerProvider,
 } from '@opentelemetry/api';
-import { getEnv } from '@opentelemetry/core';
-import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-proto';
+import {
+  CompositePropagator,
+  getEnv,
+  W3CBaggagePropagator,
+  W3CTraceContextPropagator
+} from '@opentelemetry/core';
+import { AWSXRayLambdaPropagator } from '@opentelemetry/propagator-aws-xray-lambda';
+import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
 import {
   MeterProvider,
   MeterProviderOptions,
   PeriodicExportingMetricReader,
 } from '@opentelemetry/sdk-metrics';
-import { OTLPMetricExporter } from '@opentelemetry/exporter-metrics-otlp-proto';
-import { OTLPLogExporter } from '@opentelemetry/exporter-logs-otlp-proto';
-import { getPropagator } from '@opentelemetry/auto-configuration-propagators';
+import { OTLPMetricExporter } from '@opentelemetry/exporter-metrics-otlp-http';
+import { OTLPLogExporter } from '@opentelemetry/exporter-logs-otlp-http';
 import {
   LoggerProvider,
   SimpleLogRecordProcessor,
@@ -53,63 +58,36 @@ import {
 } from '@opentelemetry/sdk-logs';
 import { logs } from '@opentelemetry/api-logs';
 
-function defaultConfigureInstrumentations() {
-  // Use require statements for instrumentation
-  // to avoid having to have transitive dependencies on all the typescript definitions.
-  const { DnsInstrumentation } = require('@opentelemetry/instrumentation-dns');
-  const {
-    ExpressInstrumentation,
-  } = require('@opentelemetry/instrumentation-express');
-  const {
-    GraphQLInstrumentation,
-  } = require('@opentelemetry/instrumentation-graphql');
-  const {
-    GrpcInstrumentation,
-  } = require('@opentelemetry/instrumentation-grpc');
-  const {
-    HapiInstrumentation,
-  } = require('@opentelemetry/instrumentation-hapi');
-  const {
-    HttpInstrumentation,
-  } = require('@opentelemetry/instrumentation-http');
-  const {
-    IORedisInstrumentation,
-  } = require('@opentelemetry/instrumentation-ioredis');
-  const { KoaInstrumentation } = require('@opentelemetry/instrumentation-koa');
-  const {
-    MongoDBInstrumentation,
-  } = require('@opentelemetry/instrumentation-mongodb');
-  const {
-    MySQLInstrumentation,
-  } = require('@opentelemetry/instrumentation-mysql');
-  const { NetInstrumentation } = require('@opentelemetry/instrumentation-net');
-  const { PgInstrumentation } = require('@opentelemetry/instrumentation-pg');
-  const {
-    RedisInstrumentation,
-  } = require('@opentelemetry/instrumentation-redis');
-  return [
-    new DnsInstrumentation(),
-    new ExpressInstrumentation(),
-    new GraphQLInstrumentation(),
-    new GrpcInstrumentation(),
-    new HapiInstrumentation(),
-    new HttpInstrumentation(),
-    new IORedisInstrumentation(),
-    new KoaInstrumentation(),
-    new MongoDBInstrumentation(),
-    new MySQLInstrumentation(),
-    new NetInstrumentation(),
-    new PgInstrumentation(),
-    new RedisInstrumentation(),
-  ];
-}
+import { LambdaTracerProvider } from './LambdaTracerProvider';
+
+const defaultInstrumentationList = [
+  'dns',
+  'express',
+  'graphql',
+  'grpc',
+  'hapi',
+  'http',
+  'ioredis',
+  'koa',
+  'mongodb',
+  'mysql',
+  'net',
+  'pg',
+  'redis',
+];
+
+const propagatorMap = new Map<string, () => TextMapPropagator>([
+  ['tracecontext', () => new W3CTraceContextPropagator()],
+  ['baggage', () => new W3CBaggagePropagator()],
+  ['xray-lambda', () => new AWSXRayLambdaPropagator()],
+]);
 
 declare global {
   // In case of downstream configuring span processors etc
   function configureAwsInstrumentation(
     defaultConfig: AwsSdkInstrumentationConfig,
   ): AwsSdkInstrumentationConfig;
-  function configureTracerProvider(tracerProvider: NodeTracerProvider): void;
+  function configureTracerProvider(tracerProvider: TracerProvider): void;
   function configureTracer(defaultConfig: NodeTracerConfig): NodeTracerConfig;
   function configureSdkRegistration(
     defaultSdkRegistration: SDKRegistrationConfig,
@@ -124,6 +102,109 @@ declare global {
     config: AwsLambdaInstrumentationConfig,
   ): AwsLambdaInstrumentationConfig;
   function configureInstrumentations(): Instrumentation[];
+}
+
+function getActiveInstumentations(): Set<string> {
+  let emabledInstrumentations: string[] = defaultInstrumentationList;
+  if (process.env.OTEL_NODE_ENABLED_INSTRUMENTATIONS) {
+    emabledInstrumentations =
+      process.env.OTEL_NODE_ENABLED_INSTRUMENTATIONS
+        .split(',')
+        .map(i => i.trim());
+  }
+
+  const instrumentationSet = new Set<string>(emabledInstrumentations);
+
+  if (process.env.OTEL_NODE_DISABLED_INSTRUMENTATIONS) {
+    const disableInstrumentations =
+      process.env.OTEL_NODE_DISABLED_INSTRUMENTATIONS
+        .split(',')
+        .map(i => i.trim())
+    disableInstrumentations.forEach(di => instrumentationSet.delete(di));
+  }
+
+  return instrumentationSet;
+}
+
+function defaultConfigureInstrumentations() {
+  const instrumentations = [];
+
+  const activeInstrumentations = getActiveInstumentations();
+
+  // Use require statements for instrumentation
+  // to avoid having to have transitive dependencies on all the typescript definitions.
+
+  if (activeInstrumentations.has('dns')) {
+    const { DnsInstrumentation } = require('@opentelemetry/instrumentation-dns');
+    instrumentations.push(new DnsInstrumentation());
+  }
+  if (activeInstrumentations.has('express')) {
+    const {
+      ExpressInstrumentation,
+    } = require('@opentelemetry/instrumentation-express');
+    instrumentations.push(new ExpressInstrumentation());
+  }
+  if (activeInstrumentations.has('graphql')) {
+    const {
+      GraphQLInstrumentation,
+    } = require('@opentelemetry/instrumentation-graphql');
+    instrumentations.push(new GraphQLInstrumentation());
+  }
+  if (activeInstrumentations.has('grpc')) {
+    const {
+      GrpcInstrumentation,
+    } = require('@opentelemetry/instrumentation-grpc');
+    instrumentations.push(new GrpcInstrumentation());
+  }
+  if (activeInstrumentations.has('hapi')) {
+    const {
+      HapiInstrumentation,
+    } = require('@opentelemetry/instrumentation-hapi');
+    instrumentations.push(new HapiInstrumentation());
+  }
+  if (activeInstrumentations.has('http')) {
+    const {
+      HttpInstrumentation,
+    } = require('@opentelemetry/instrumentation-http');
+    instrumentations.push(new HttpInstrumentation());
+  }
+  if (activeInstrumentations.has('ioredis')) {
+    const {
+      IORedisInstrumentation,
+    } = require('@opentelemetry/instrumentation-ioredis');
+    instrumentations.push(new IORedisInstrumentation());
+  }
+  if (activeInstrumentations.has('koa')) {
+    const { KoaInstrumentation } = require('@opentelemetry/instrumentation-koa');
+    instrumentations.push(new KoaInstrumentation());
+  }
+  if (activeInstrumentations.has('mongodb')) {
+    const {
+      MongoDBInstrumentation,
+    } = require('@opentelemetry/instrumentation-mongodb');
+    instrumentations.push(new MongoDBInstrumentation());
+  }
+  if (activeInstrumentations.has('mysql')) {
+    const {
+      MySQLInstrumentation,
+    } = require('@opentelemetry/instrumentation-mysql');
+    instrumentations.push(new MySQLInstrumentation());
+  }
+  if (activeInstrumentations.has('net')) {
+    const { NetInstrumentation } = require('@opentelemetry/instrumentation-net');
+    instrumentations.push(new NetInstrumentation());
+  }
+  if (activeInstrumentations.has('pg')) {
+    const { PgInstrumentation } = require('@opentelemetry/instrumentation-pg');
+    instrumentations.push(new PgInstrumentation());
+  }
+  if (activeInstrumentations.has('redis')) {
+    const {
+      RedisInstrumentation,
+    } = require('@opentelemetry/instrumentation-redis');
+    instrumentations.push(new RedisInstrumentation());
+  }
+  return instrumentations;
 }
 
 function createInstrumentations() {
@@ -144,6 +225,48 @@ function createInstrumentations() {
   ];
 }
 
+function getPropagator(): TextMapPropagator {
+  if (
+    process.env.OTEL_PROPAGATORS == null ||
+    process.env.OTEL_PROPAGATORS.trim() === ''
+  ) {
+    return new CompositePropagator({
+      propagators: [
+        new W3CTraceContextPropagator(),
+        new W3CBaggagePropagator(),
+      ],
+    });
+  }
+
+  const propagatorsFromEnv = Array.from(
+    new Set(
+      process.env.OTEL_PROPAGATORS?.split(',').map(value =>
+        value.toLowerCase().trim()
+      )
+    )
+  );
+
+  const propagators = propagatorsFromEnv.flatMap(propagatorName => {
+    if (propagatorName === 'none') {
+      diag.info(
+        'Not selecting any propagator for value "none" specified in the environment variable OTEL_PROPAGATORS'
+      );
+      return [];
+    }
+
+    const propagatorFactoryFunction = propagatorMap.get(propagatorName);
+    if (propagatorFactoryFunction == null) {
+      diag.warn(
+        `Invalid propagator "${propagatorName}" specified in the environment variable OTEL_PROPAGATORS`
+      );
+      return [];
+    }
+    return propagatorFactoryFunction();
+  });
+
+  return new CompositePropagator({ propagators });
+}
+
 function initializeProvider() {
   const resource = detectResourcesSync({
     detectors: [awsLambdaDetector, envDetector, processDetector],
@@ -156,7 +279,7 @@ function initializeProvider() {
     config = configureTracer(config);
   }
 
-  const tracerProvider = new NodeTracerProvider(config);
+  const tracerProvider = new LambdaTracerProvider(config);
   if (typeof configureTracerProvider === 'function') {
     configureTracerProvider(tracerProvider);
   } else {
