@@ -38,6 +38,12 @@ build: clean set-otelcol-version
 	mkdir -p $(BUILD_SPACE)/extensions
 	GOOS=linux GOARCH=$(GOARCH) $(GOBUILD) $(LDFLAGS) -o $(BUILD_SPACE)/extensions .
 
+.PHONY: build-local
+build-local: clean set-otelcol-version
+	@echo Building otel collector extension
+	mkdir -p $(BUILD_SPACE)/extensions
+	GOOS=darwin GOARCH=arm64 $(GOBUILD) $(LDFLAGS) -o $(BUILD_SPACE)/extensions .
+
 .PHONY: package
 package: build
 	@echo Package zip file for collector extension layer

@@ -5,12 +5,12 @@ module "hello-lambda-function" {
   architectures = compact([var.architecture])
   function_name = var.name
   handler       = "index.handler"
-  runtime       = "nodejs16.x"
+  runtime       = "nodejs18.x"
 
   create_package         = false
   local_existing_package = "${path.module}/../../build/function.zip"
 
-  memory_size = 384
+  memory_size = 512
   timeout     = 20
 
   layers = compact([
@@ -19,12 +19,20 @@ module "hello-lambda-function" {
   ])
 
   environment_variables = {
-    AWS_LAMBDA_EXEC_WRAPPER     = "/opt/otel-handler"
-    OTEL_TRACES_EXPORTER        = "logging"
-    OTEL_METRICS_EXPORTER       = "logging"
-    OTEL_LOG_LEVEL              = "DEBUG"
-    OTEL_EXPORTER_OTLP_ENDPOINT = "http://localhost:4318/"
-    OTEL_TRACES_SAMPLER         = "always_on"
+    AWS_LAMBDA_EXEC_WRAPPER             = "/opt/otel-handler"
+    OTEL_TRACES_EXPORTER                = "logging"
+    OTEL_METRICS_EXPORTER               = "logging"
+    //OTEL_LOG_LEVEL                    = "DEBUG"
+    //OTEL_EXPORTER_OTLP_ENDPOINT       = "http://localhost:4318/"
+    OTEL_TRACES_SAMPLER                 = "always_on"
+    //GODEBUG                           = "inittrace=1"
+    //GOMAXPROCS                        = 1
+    //OPENTELEMETRY_EXTENSION_LOG_LEVEL = "DEBUG"
+    PROFILER_ENABLE                     = "false"
+    PROFILER_SAMPLING_INTERVAL          = 5
+    MODULE_COMPILE_CACHE_SAVE           = "false"
+    MODULE_COMPILE_CACHE_LOAD           = "true"
+    OTEL_NODE_ENABLED_INSTRUMENTATIONS  = "-"
   }
 
   tracing_mode = var.tracing_mode
@@ -34,7 +42,7 @@ module "hello-lambda-function" {
     s3 = {
       effect = "Allow"
       actions = [
-        "s3:ListAllMyBuckets"
+        "s3:*"
       ]
       resources = [
         "*"

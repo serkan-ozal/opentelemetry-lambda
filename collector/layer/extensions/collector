@@ -1,0 +1,47 @@
+#!/bin/bash
+
+set -euo pipefail
+
+OWN_FILENAME="$(basename $0)"
+LAMBDA_EXTENSION_NAME="$OWN_FILENAME" # (external) extension name has to match the filename
+TMPFILE=/tmp/$OWN_FILENAME
+
+# Graceful Shutdown
+_term() {
+  echo "[${LAMBDA_EXTENSION_NAME}] Received SIGTERM"
+  # forward SIGTERM to child procs and exit
+  kill -TERM "$PID" 2>/dev/null
+  echo "[${LAMBDA_EXTENSION_NAME}] Exiting"
+  exit 0
+}
+
+forward_sigterm_and_wait() {
+  trap _term SIGTERM
+  wait "$PID"
+  trap - SIGTERM
+}
+
+# Initialization
+# To run any extension processes that need to start before the runtime initializes, run them before the /register
+echo "[${LAMBDA_EXTENSION_NAME}] Initialization"
+# Registration
+# The extension registration also signals to Lambda to start initializing the runtime.
+HEADERS="$(mktemp)"
+echo "[${LAMBDA_EXTENSION_NAME}] Registering at http://${AWS_LAMBDA_RUNTIME_API}/2020-01-01/extension/register"
+curl -sS -LD "$HEADERS" -XPOST "http://${AWS_LAMBDA_RUNTIME_API}/2020-01-01/extension/register" --header "Lambda-Extension-Name: ${LAMBDA_EXTENSION_NAME}" -d "{ \"events\": [\"INVOKE\", \"SHUTDOWN\"]}" > $TMPFILE
+
+RESPONSE=$(<$TMPFILE)
+HEADINFO=$(<$HEADERS)
+# Extract Extension ID from response headers
+EXTENSION_ID=$(grep -Fi Lambda-Extension-Identifier "$HEADERS" | tr -d '[:space:]' | cut -d: -f2)
+echo "[${LAMBDA_EXTENSION_NAME}] Registration response: ${RESPONSE} with EXTENSION_ID ${EXTENSION_ID}"
+
+NOW=$(date "+%s.%N")
+echo "Starting collector at $NOW ..."
+
+# Start collector with already registered registration id
+EXTENSION_ID="${EXTENSION_ID}" /opt/extensions/collector-bin/collector &
+PID=$!
+forward_sigterm_and_wait
+
+echo "Started collector"

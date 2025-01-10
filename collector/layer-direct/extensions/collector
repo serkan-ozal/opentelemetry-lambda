@@ -1,0 +1,6 @@
+#!/bin/bash
+
+NOW=$(date "+%s.%N")
+echo "Starting collector at $NOW ..."
+/opt/extensions/collector-bin/collector
+echo "Started collector"
