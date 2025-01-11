@@ -8,12 +8,14 @@ import {
   trace,
 } from '@opentelemetry/api';
 import { logs } from '@opentelemetry/api-logs';
-import { getEnv } from '@opentelemetry/core';
+import {ExportResult, getEnv} from '@opentelemetry/core';
 import {
   BatchSpanProcessor,
   ConsoleSpanExporter,
+  ReadableSpan,
   SDKRegistrationConfig,
   SimpleSpanProcessor,
+  SpanExporter,
 } from '@opentelemetry/sdk-trace-base';
 import {
   NodeTracerConfig,
@@ -37,7 +39,8 @@ import {
 } from '@opentelemetry/resources';
 import { awsLambdaDetector } from '@opentelemetry/resource-detector-aws';
 import { getPropagator } from '@opentelemetry/auto-configuration-propagators';
-import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
+import { OTLPTraceExporter as OTLPHTTPTraceExporter} from '@opentelemetry/exporter-trace-otlp-http';
+import { OTLPTraceExporter as OTLPProtoTraceExporter} from '@opentelemetry/exporter-trace-otlp-proto';
 import { OTLPMetricExporter } from '@opentelemetry/exporter-metrics-otlp-http';
 import { OTLPLogExporter } from '@opentelemetry/exporter-logs-otlp-http';
 import {
@@ -144,6 +147,39 @@ function createInstrumentations() {
   ];
 }
 
+class ManagedTraceExporter implements SpanExporter {
+
+  private readonly spanExporter: SpanExporter;
+
+  constructor(spanExporter: SpanExporter) {
+    this.spanExporter = spanExporter;
+  }
+
+  export(spans: ReadableSpan[], resultCallback: (result: ExportResult) => void): void {
+    if (process.env.OTLP_DUPLICATE_FACTOR) {
+      const duplicateFactor = parseInt(process.env.OTLP_DUPLICATE_FACTOR);
+      const duplicatedSpans: ReadableSpan[] = [];
+      for (let i = 0; i < duplicateFactor; i++) {
+        duplicatedSpans.push(...spans);
+      }
+      spans = duplicatedSpans;
+    }
+
+    const start: [number, number] = process.hrtime();
+    this.spanExporter.export(spans, (result: ExportResult) => {
+      const end: [number, number] = process.hrtime(start);
+      const timeInMs: number = (end[0] * 1_000) + (end[1] / 1_000_000);
+      console.log(`>>> Traces have been exported in ${timeInMs} milliseconds`);
+      resultCallback(result);
+    });
+  }
+
+  shutdown(): Promise<void> {
+    return Promise.resolve(undefined);
+  }
+
+}
+
 function initializeProvider() {
   const resource = detectResourcesSync({
     detectors: [awsLambdaDetector, envDetector, processDetector],
@@ -160,9 +196,17 @@ function initializeProvider() {
   if (typeof configureTracerProvider === 'function') {
     configureTracerProvider(tracerProvider);
   } else {
+    let spanExporter: SpanExporter;
+    if (process.env.OTLP_PROTO_ENABLED === 'true') {
+      console.log('>>> Using OTLPProtoTraceExporter ...');
+      spanExporter = new OTLPProtoTraceExporter();
+    } else {
+      console.log('>>> Using OTLPHTTPTraceExporter ...');
+      spanExporter = new OTLPHTTPTraceExporter();
+    }
     // Defaults
     tracerProvider.addSpanProcessor(
-      new BatchSpanProcessor(new OTLPTraceExporter()),
+      new BatchSpanProcessor(new ManagedTraceExporter(spanExporter)),
     );
   }
   // Logging for debug

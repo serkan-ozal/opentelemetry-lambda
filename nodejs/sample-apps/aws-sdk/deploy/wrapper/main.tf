@@ -10,21 +10,25 @@ module "hello-lambda-function" {
   create_package         = false
   local_existing_package = "${path.module}/../../build/function.zip"
 
-  memory_size = 384
-  timeout     = 20
+  memory_size = 512
+  timeout     = 60
 
   layers = compact([
     var.collector_layer_arn,
     var.sdk_layer_arn
   ])
 
-  environment_variables = {
+environment_variables = {
     AWS_LAMBDA_EXEC_WRAPPER     = "/opt/otel-handler"
-    OTEL_TRACES_EXPORTER        = "logging"
-    OTEL_METRICS_EXPORTER       = "logging"
-    OTEL_LOG_LEVEL              = "DEBUG"
+    #OTEL_TRACES_EXPORTER        = "logging"
+    OTEL_METRICS_EXPORTER       = "none"
+    OTEL_LOGS_EXPORTER          = "none"
+    #OTEL_LOG_LEVEL              = "DEBUG"
     OTEL_EXPORTER_OTLP_ENDPOINT = "http://localhost:4318/"
     OTEL_TRACES_SAMPLER         = "always_on"
+    OPENTELEMETRY_COLLECTOR_CONFIG_URI  = "file:/var/task/collector-config.yaml"
+    HONEYCOMB_API_KEY           = "b8ueofmeEUe9xeZD7xDKB6B"
+    OTLP_DUPLICATE_FACTOR       = 10000
   }
 
   tracing_mode = var.tracing_mode
